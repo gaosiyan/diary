@@ -1,0 +1,11 @@
+[workspace]
+authors = ["gaozhan <18602912875@163.com>"]
+channels = ["conda-forge"]
+name = "diary"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+sphinx = ">=9.0.4,<10"
