@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]    # 推送到 main 分支后触发
+
+jobs:
+  deploy-to-pages:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4  # 升级到最新版
+      with:
+        fetch-depth: 0  # 修正拼写错误
+
+    - name: Set up Python 3.14  # 统一版本描述
+      uses: actions/setup-python@v5  # 升级到最新版
+      with:
+        python-version: "3.14"
+
+    - name: Cache pip
+      uses: actions/cache@v4  # 升级到最新版 + 修正拼写错误
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashfiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          ${{ runner.os }}-
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+            pip install --upgrade pip
+            pip install -r requirements.txt
+    
+    - name: Build HTML
+      run: |
+          make clean
+          make html
+
+    - name: Deploy to GitHub Pages 
+      uses: peaceiris/actions-gh-pages@v3.9.3  # 升级到稳定版
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}      
+        publish_dir: build/html  # 确认 Sphinx 构建输出目录是这个（默认是 build/html，没问题）
+        user_name: "github-actions[bot]"  # 保持默认，无需修改
+        user_email: "github-actions[bot]@users.noreply.github.com"  # 保持默认
