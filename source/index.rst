@@ -16,7 +16,13 @@ documentation for details.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 目录:
+
+   sphinx/项目部署
+   sphinx/基础教程
+   sphinx/高阶功能
+   sphinx/最佳实践
 
 
-.. giscus::
+
+

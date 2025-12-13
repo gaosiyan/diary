@@ -1,0 +1,44 @@
+========
+项目部署
+========
+
+文档最后更新时间: 2025-12-13 19:32:16
+
+本文提供当前 Sphinx 文档项目的完整部署流程,即从本地构建到发布 GitHub Pages 的 step-by-step 流程.
+
+本地 Git 配置
+==============
+
+待补充.
+
+GitHub 配置
+===========
+
+配置 SSH 密钥
+--------------
+待补充.
+
+创建 GitHub 仓库
+----------------
+
+创建文档仓库 diary:
+
+.. figure:: /_static/1.png
+
+
+创建评论仓库 diary-comments:
+
+.. figure:: /_static/2.png
+
+
+开启 diary-comments Discussions 
+
+.. figure:: /_static/3.png
+
+.. figure:: /_static/4.png
+
+
+配置 giscus
+------------
+
+
