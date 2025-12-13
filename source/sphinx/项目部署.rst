@@ -26,19 +26,37 @@ GitHub 配置
 .. figure:: /_static/1.png
 
 
-创建评论仓库 diary-comments:
+创建评论仓库 diary-giscus-comments:
 
 .. figure:: /_static/2.png
 
 
-开启 diary-comments Discussions 
+开启 diary-giscus-comments 仓库 Discussions 功能:
 
-.. figure:: /_static/3.png
+进入仓库的 Setting 页面
 
 .. figure:: /_static/4.png
 
+访问 `giscus GitHub App <https://github.com/apps/giscus>`_  页面安装 giscus app.
 
-配置 giscus
-------------
+.. figure:: /_static/55.png
+
+.. figure:: /_static/66.png
+
+.. figure:: /_static/77.png
+
+访问 `giscus <https://giscus.app/zh-CN>`_ 网站生成 giscus 配置。
+
+配置语言和仓库
+
+.. figure:: /_static/88.png
+
+选择分类
+
+Discussion 分类
+
+.. figure:: /_static/99.png
+
+.. figure:: /_static/aa.png
 
 
