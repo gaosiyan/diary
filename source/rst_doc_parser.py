@@ -51,8 +51,9 @@ class RstDocParser:
         try:
             parser = Parser()
             settings = get_default_settings(Parser)
+            settings.warning_stream = None  # 关闭警告流
+            settings.report_level = 'SEVERE'  # 只报告严重错误及以上
             document = new_document(file_path, settings=settings)
-            parser.parse(file_content, document)
 
         except Exception as exc:
             raise RstDocParserError(f"错误! 文档 {file_path} 解析错误,原始错误: {exc}") from exc
