@@ -42,7 +42,7 @@ class RstDocBatchProcessor:
         """
         rename_dict = rename_files_by_sha1(self.image_dir)
 
-        for rst_file_path in self.rst_file_paths:            
+        for rst_file_path in self.rst_file_paths:
             parse = RstDocParser(rst_file_path)
 
             if rst_file_path.endswith("index.rst") is False:

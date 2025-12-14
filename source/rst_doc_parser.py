@@ -52,7 +52,7 @@ class RstDocParser:
             parser = Parser()
             settings = get_default_settings(Parser)
             settings.warning_stream = None  # 关闭警告流
-            settings.report_level = 'SEVERE'  # 只报告严重错误及以上
+            settings.report_level = "SEVERE"  # 只报告严重错误及以上
             document = new_document(file_path, settings=settings)
             parser.parse(file_content, document)
 
