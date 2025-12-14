@@ -23,7 +23,7 @@ def execute_in_parallel(func: Callable[[str], Any], arguments: List[str]) -> Lis
         arguments: 参数列表, 每次执行 func 函数时传入的参数
 
     Returns:
-        函数返回值列表
+        函数返回值列表, 或 None 表示没有执行成功
     """
     # 最大进程数为CPU核数
     with ProcessPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
@@ -93,10 +93,40 @@ def calculate_files_sha1_code_parallel(file_paths: List[str]):
     return execute_in_parallel(calculate_file_sha1_code, file_paths)
 
 
+def rename_files_by_sha1(root: str):
+    """
+    重命名文件,并返回已经重命名文件字典 [{old_name:new_name}]
+    """
+    cwd = os.getcwd()
+    os.chdir(root)
+
+    file_names = os.listdir()
+
+    sha1_codes = calculate_files_sha1_code_parallel(file_names)
+
+    if sha1_codes is None or None in sha1_codes:
+        return None
+
+    rename_dicts = []
+
+    for file_name, sha1_code in zip(file_names, sha1_codes):
+        file_name_without_ext = os.path.splitext(os.path.basename(file_name))[0]
+        if file_name_without_ext != sha1_code:
+            old_name = file_name
+            new_name = file_name.replace(file_name_without_ext, sha1_code)
+            rename_dicts.append({old_name: new_name})
+            os.rename(old_name, new_name)
+
+    os.chdir(cwd)
+    return rename_dicts
+
+
 if __name__ == "__main__":
 
-    image_file_path_list = ["1.png", "2.png", "3.png", "4.png", "55.png", "66.png", "77.png", "88.png", "99.png", "aa.png"]
-    os.chdir(r"D:\projects\diary\source\_static")
+    # image_file_path_list = ["1.png", "2.png", "3.png", "4.png", "55.png", "66.png", "77.png", "88.png", "99.png", "aa.png"]
+    # os.chdir(r"D:\projects\diary\source\_static")
 
-    result_list = calculate_files_sha1_code_parallel(image_file_path_list)
-    print(result_list)
+    # result_list = calculate_files_sha1_code_parallel(image_file_path_list)
+    # print(result_list)
+
+    rename_files_by_sha1(r"D:\projects\diary\source\_static")
