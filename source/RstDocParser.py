@@ -144,5 +144,5 @@ class RstDocParserError(Exception):
 
 
 if __name__ == "__main__":
-    processor = RstProcessor(r"D:\projects\diary\source\sphinx\项目部署.rst")
-    print(processor.get_image_file_path_list())
+    #processor = RstProcessor(r"D:\projects\diary\source\sphinx\项目部署.rst")
+    #print(processor.get_image_file_path_list())
