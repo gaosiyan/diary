@@ -115,7 +115,7 @@ def rename_files_by_sha1(root: str):
             old_name = file_name
             new_name = file_name.replace(file_name_without_ext, sha1_code)
             rename_dicts.append({old_name: new_name})
-            #os.rename(old_name, new_name)
+            # os.rename(old_name, new_name)
 
     os.chdir(cwd)
     return rename_dicts
