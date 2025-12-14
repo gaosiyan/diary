@@ -42,23 +42,25 @@ class RstDocBatchProcessor:
         """
         rename_dict = rename_files_by_sha1(self.image_dir)
 
-        for rst_file_path in self.rst_file_paths:
+        for rst_file_path in self.rst_file_paths:            
             parse = RstDocParser(rst_file_path)
-            # image_file_paths 是当前文档的所有图片,例如[/_static/1.png,/_static/2.png]
-            image_file_paths = parse.get_image_file_paths()
 
-            replace_dict = {}
+            if rst_file_path.endswith("index.rst") is False:
+                # image_file_paths 是当前文档的所有图片,例如[/_static/1.png,/_static/2.png]
+                image_file_paths = parse.get_image_file_paths()
 
-            for image_file in image_file_paths:
-                # base_file_name 只是文件名,例如 1.png
-                base_file_name = os.path.basename(image_file)
-                if base_file_name in rename_dict:
-                    old_str = image_file
-                    new_str = image_file.replace(base_file_name, rename_dict[base_file_name])
-                    replace_dict[old_str] = new_str
+                replace_dict = {}
 
-            if replace_dict:
-                parse.replace_image_path(replace_dict)
+                for image_file in image_file_paths:
+                    # base_file_name 只是文件名,例如 1.png
+                    base_file_name = os.path.basename(image_file)
+                    if base_file_name in rename_dict:
+                        old_str = image_file
+                        new_str = image_file.replace(base_file_name, rename_dict[base_file_name])
+                        replace_dict[old_str] = new_str
+
+                if replace_dict:
+                    parse.replace_image_path(replace_dict)
 
             parse.format()
 

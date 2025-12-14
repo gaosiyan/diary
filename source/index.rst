@@ -6,13 +6,11 @@
 diary documentation
 ===================
 
-测试111
-
+测试 111
 
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 documentation for details.
-
 
 .. toctree::
    :maxdepth: 2
@@ -21,8 +19,4 @@ documentation for details.
    sphinx/项目部署
    sphinx/基础教程
    sphinx/高阶功能
-   sphinx/最佳实践
-
-
-
-
+   sphinx/最佳实践
