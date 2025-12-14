@@ -43,11 +43,11 @@ class RstDocBatchProcessor:
         rename_dict = rename_files_by_sha1(self.image_dir)
 
         for rst_file_path in self.rst_file_paths:
-            parse = RstDocParser(rst_file_path)
+            parser = RstDocParser(rst_file_path)
 
             if rst_file_path.endswith("index.rst") is False:
                 # image_file_paths 是当前文档的所有图片,例如[/_static/1.png,/_static/2.png]
-                image_file_paths = parse.get_image_file_paths()
+                image_file_paths = parser.get_image_file_paths()
 
                 replace_dict = {}
 
@@ -60,9 +60,9 @@ class RstDocBatchProcessor:
                         replace_dict[old_str] = new_str
 
                 if replace_dict:
-                    parse.replace_image_path(replace_dict)
+                    parser.replace_image_path(replace_dict)
 
-            parse.format()
+            parser.format()
 
 
 class RstDocBatchProcessorError(Exception):
