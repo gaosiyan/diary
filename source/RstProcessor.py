@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-文件名称: RstProcessor.py
+文件名称: RstDocumentParser.py
 文件作者: gaosiyan
 创建时间: 20251213
 功能说明: RST 文档解析处理类
@@ -15,10 +15,10 @@ from docutils.utils import new_document
 from docutils.frontend import get_default_settings
 from docutils import nodes
 
-from utils import check_files_exist_parallel, calculate_files_sha1_code_parallel
+from utils import check_files_exist_parallel
 
 
-class RstProcessor:
+class RstDocParser:
     """处理 RST 文档的完整功能"""
 
     def __init__(self, file_path: str) -> None:
@@ -58,7 +58,7 @@ class RstProcessor:
         检查当前文档图片是否都存在
         """
 
-        image_file_paths = self._get_image_file_paths()
+        image_file_paths = self.get_image_file_paths()
         exists = check_files_exist_parallel(["." + s for s in image_file_paths])
 
         if exists is None:
@@ -72,42 +72,7 @@ class RstProcessor:
 
         return True
 
-    def get_rename_image_dict_list(self):
-        """
-        返回需要重命名的文件列表
-        """
-        image_file_paths = self._get_image_file_paths()
-        image_files_sha1_code = calculate_files_sha1_code_parallel(["." + s for s in image_file_paths])
-        rename_image_dict_list = []
-
-        if image_files_sha1_code is None or None in image_files_sha1_code:
-            raise RstProcessorError(f"错误! sha1 计算错误")
-
-        for file_path, sha1_code in zip(image_file_paths, image_files_sha1_code):
-            file_name_without_ext = os.path.splitext(os.path.basename(file_path))[0]
-
-            if file_name_without_ext != sha1_code:
-                rename_image_dict_list.append({file_path: file_path.replace(file_name_without_ext, sha1_code)})
-        return rename_image_dict_list
-
-    def _calc_image_files_sha1_code(self):
-        """
-        批量计算 sha1
-        """
-        image_file_paths = self._get_image_file_paths()
-        image_files_sha1_code = calculate_files_sha1_code_parallel(["." + s for s in image_file_paths])
-
-        image_files_sha1_code_dict_list = []
-
-        if image_files_sha1_code is None or None in image_files_sha1_code:
-            raise RstProcessorError(f"错误! sha1 计算错误")
-
-        for file_path, sha1_code in zip(image_file_paths, image_files_sha1_code):
-            image_files_sha1_code_dict_list.append({file_path, sha1_code})
-
-        return image_files_sha1_code_dict_list
-
-    def _get_image_file_paths(self) -> List[str]:
+    def get_image_file_paths(self) -> List[str]:
         """
         返回当前文档的图片列表
         """
@@ -116,6 +81,7 @@ class RstProcessor:
         for node in self.document.findall(nodes.image):
             if "uri" in node.attributes:
                 image_file_paths.append(node["uri"])
+                #calculate_files_sha1_code_parallel(["." + s for s in image_file_paths])
 
         return image_file_paths
 
