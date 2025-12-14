@@ -95,7 +95,7 @@ def calculate_files_sha1_code_parallel(file_paths: List[str]):
 
 def rename_files_by_sha1(root: str):
     """
-    重命名文件,并返回已经重命名文件字典 [{old_name:new_name}]
+    重命名文件,并返回已经重命名文件字典 {old_name:new_name}
     """
     cwd = os.getcwd()
     os.chdir(root)
@@ -107,18 +107,18 @@ def rename_files_by_sha1(root: str):
     if sha1_codes is None or None in sha1_codes:
         return None
 
-    rename_dicts = []
+    rename_dict = {}
 
     for file_name, sha1_code in zip(file_names, sha1_codes):
         file_name_without_ext = os.path.splitext(os.path.basename(file_name))[0]
         if file_name_without_ext != sha1_code:
             old_name = file_name
             new_name = file_name.replace(file_name_without_ext, sha1_code)
-            rename_dicts.append({old_name: new_name})
-            # os.rename(old_name, new_name)
+            rename_dict[old_name] = new_name
+            os.rename(old_name, new_name)
 
     os.chdir(cwd)
-    return rename_dicts
+    return rename_dict
 
 
 if __name__ == "__main__":

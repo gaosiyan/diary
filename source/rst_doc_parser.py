@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-文件名称: RstDocParser.py
+文件名称: rst_doc_parser.py
 文件作者: gaosiyan
 创建时间: 20251213
 功能说明: 单个 RST 文档解析处理类
@@ -36,8 +36,8 @@ class RstDocParser:
         working_dir = Path(__file__).resolve().parent
         try:
             os.chdir(working_dir)
-        except:
-            raise RstDocParserError(f"错误! 切换到 {working_dir} 目录失败.")
+        except Exception as exc:
+            raise RstDocParserError(f"无法切换到目录 {working_dir}，原始错误: {exc}") from exc
 
         self.file_path = file_path
 
@@ -46,23 +46,19 @@ class RstDocParser:
         返回当前文档的图片列表,实际路径需要转换成 ["." + file_path for file_path in image_file_paths]
         """
         file_path = self.file_path
-        file_content = ""
-        with open(file_path, "r", encoding="utf-8") as file:
-            file_content = file.read()
-
-        if file_content == "":
-            raise RstDocParserError(f"错误! 文档 {file_path} 读取错误,请检查文件是否非 UTF-8 编码.")
+        file_content = self._read_file()
 
         try:
             parser = Parser()
             settings = get_default_settings(Parser)
             document = new_document(file_path, settings=settings)
             parser.parse(file_content, document)
+
         except Exception as exc:
-            raise RstDocParserError(f"错误! 文档 {file_path} 解析错误,错误信息 {exc}.")
+            raise RstDocParserError(f"错误! 文档 {file_path} 解析错误,原始错误: {exc}") from exc
 
         image_file_paths = []
-        for node in self.document.findall(nodes.image):
+        for node in document.findall(nodes.image):
             if "uri" in node.attributes:
                 image_file_paths.append(node["uri"])
 
@@ -86,17 +82,22 @@ class RstDocParser:
 
         return True
 
+    def replace_image_path(self, replace_dict):
+        """
+        更新格式化后的图片路径
+        """
+
+        if replace_dict:
+            file_content = self._read_file()
+            for old_str in replace_dict:
+                file_content = file_content.replace(old_str, replace_dict[old_str])
+            self._write_file(file_content.strip() + os.linesep)
+
     def format(self) -> None:
         """
         格式化
         """
-        file_path = self.file_path
-        file_content = ""
-        with open(file_path, "r", encoding="utf-8") as file:
-            file_content = file.read()
-
-        if file_content == "":
-            raise RstDocParserError(f"错误! 文档 {file_path} 读取错误,请检查文件是否非 UTF-8 编码.")
+        file_content = self._read_file()
 
         # 替换中文标点
         file_content = (
@@ -126,9 +127,31 @@ class RstDocParser:
         # 删除多余的换行
         file_content = re.sub(r"\n\n+", r"\n\n", file_content)
 
+        self._write_file(file_content.strip() + os.linesep)
+
+    def _read_file(self) -> str:
+        """读取文件"""
+        file_path = self.file_path
+        content = ""
+        with open(file_path, "r", encoding="utf-8") as file:
+            content = file.read()
+        if content == "":
+            raise RstDocParserError(f"错误! 文档 {file_path} 读取错误,请检查文件是否非 UTF-8 编码.")
+
+        return content
+
+    def _write_file(self, content: str) -> None:
+        """写入文件"""
+        file_path = self.file_path
+        write_flag = False
+
         # 回写文件
         with open(file_path, "w", encoding="utf-8") as file:
-            file.write(file_content.strip() + os.linesep)
+            file.write(content.strip() + os.linesep)
+            write_flag = True
+
+        if write_flag is False:
+            raise RstDocParserError(f"错误! 文档 {file_path} 写入错误,请检查写入权限.")
 
 
 class RstDocParserError(Exception):
@@ -144,5 +167,5 @@ class RstDocParserError(Exception):
 
 
 if __name__ == "__main__":
-    #processor = RstProcessor(r"D:\projects\diary\source\sphinx\项目部署.rst")
-    #print(processor.get_image_file_path_list())
+    rst_doc_parser = RstDocParser(r"D:\projects\diary\source\sphinx\项目部署.rst")
+    print(rst_doc_parser.get_image_file_paths())
