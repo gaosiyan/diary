@@ -55,4 +55,5 @@ Discussion 分类
 
 .. figure:: /_static/5a271c77654fd65862f8181c645ae72e4e88a4bd.png
 
-.. figure:: /_static/d3e5cb05868cb83aae701002460b2a1c0f34a9a7.png
+.. figure:: /_static/d3e5cb05868cb83aae701002460b2a1c0f34a9a7.png
+

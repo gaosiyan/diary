@@ -35,7 +35,7 @@ giscus_reactions = "1"  # 是否启用反应：1 启用，0 禁用
 giscus_metadata = "0"  # 是否发送元数据
 giscus_position = "bottom"  # 输入框位置：bottom, top
 giscus_theme = "light"  # 主题：light, dark, transparent_dark, preferred_color_scheme
-giscus_lang = "zh-CN"  # 语言
+giscus_lang = "zh_CN"  # 语言
 giscus_loading = "lazy"  # 加载方式：lazy, eager
 
 templates_path = ["_templates"]
