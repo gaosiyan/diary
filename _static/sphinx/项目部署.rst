@@ -1,0 +1,59 @@
+========
+项目部署
+========
+
+文档最后更新时间: 2025-12-13 19:32:16
+
+本文提供当前 Sphinx 文档项目的完整部署流程,即从本地构建到发布 GitHub Pages 的 step-by-step 流程.
+
+本地 Git 配置
+==============
+
+待补充.
+
+GitHub 配置
+===========
+
+配置 SSH 密钥
+--------------
+待补充.
+
+创建 GitHub 仓库
+----------------
+
+创建文档仓库 diary:
+
+.. figure:: /_static/cb415eae31351d256f8214b271c8b43266150368.png
+
+创建评论仓库 diary-giscus-comments:
+
+.. figure:: /_static/34281dec3876fd628d692bc704d541380eb68139.png
+
+开启 diary-giscus-comments 仓库 Discussions 功能:
+
+进入仓库的 Setting 页面
+
+.. figure:: /_static/e9f5805fa11c03c1d74949b825d056fc0122078c.png
+
+访问 `giscus GitHub App <https://github.com/apps/giscus>`_  页面安装 giscus app.
+
+.. figure:: /_static/d1d8123ab12a1307c57279eca08f88d8cbb74e2b.png
+
+.. figure:: /_static/1e5012e451956613436e7e83efba002005b9a64d.png
+
+.. figure:: /_static/b9c3083dc3097f98674f2ac91fc6ad258c02bfd0.png
+
+访问 `giscus <https://giscus.app/zh-CN>`_ 网站生成 giscus 配置.
+
+配置语言和仓库
+
+.. figure:: /_static/166e4f92c2ee2e3d4c0ed3be86c14829c6fee760.png
+
+选择分类
+
+Discussion 分类
+
+.. figure:: /_static/5a271c77654fd65862f8181c645ae72e4e88a4bd.png
+
+.. figure:: /_static/d3e5cb05868cb83aae701002460b2a1c0f34a9a7.png
+
