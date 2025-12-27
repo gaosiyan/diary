@@ -9,17 +9,20 @@
 
 import os
 import sys
+import time
 import shutil
 from pathlib import Path
 from sphinx.application import Sphinx
 
-from utils import rename_files_by_sha1, replace_file
+from utils import rename_files_by_sha1, replace_file, format, execute_in_parallel
 
 
 def sphinx_format():
     """
     格式化 sphinx 文档项目
     """
+
+    start_time = time.time()
 
     ROOT_DIR = Path(__file__).resolve().parent.parent  # Sphinx 根目录
     SRC_DIR = os.path.join(ROOT_DIR, "source")  # 源码目录
@@ -28,6 +31,7 @@ def sphinx_format():
     IMAGE_DIR = os.path.join(SRC_DIR, "_static")  # 图片目录
     HTML_DIR = os.path.join(BUILD_DIR, "html")  # HTML 输出根目录
     DOC_TREE_DIR = os.path.join(BUILD_DIR, "doctrees")  # doctrees 目录
+    TEMP_DIR = os.path.join(ROOT_DIR, "TEMP")  # 源码目录
 
     # 删除之前的编译产出
     if os.path.isdir(BUILD_DIR):
@@ -51,7 +55,7 @@ def sphinx_format():
     app.build()  # 编译
 
     if app.statuscode != 0:
-        print("编译失败,请检查输出信息!")
+        print("错误! 编译失败,请检查输出信息.")
         sys.exit(0)
 
     """
@@ -73,8 +77,43 @@ def sphinx_format():
         if old_name != new_name:
             old_path = image_dir_name + "/" + old_name
             new_path = old_path.replace(old_name, new_name)
-            for rst_file_path in app.builder.env.images[old_path][0]:
-                replace_file(os.path.join(SRC_DIR, rst_file_path), old_path, new_path)
+            if old_path in app.builder.env.images:
+                for rst_file_path in app.builder.env.images[old_path][0]:
+                    replace_file(os.path.join(SRC_DIR, rst_file_path + ".rst"), old_path, new_path)
+
+    app.build()  # 编译
+    if app.statuscode != 0:
+        print("错误! 图片更新失败,请检查输出信息.")
+        sys.exit(0)
+    print("图片更新成功!")
+
+    remove_image_cnt = 0
+
+    for image_file in os.listdir(IMAGE_DIR):
+        if image_dir_name + "/" + image_file not in app.builder.env.images:
+            old_path = os.path.join(IMAGE_DIR, image_file)
+            new_path = os.path.join(TEMP_DIR, image_file)
+            shutil.move(old_path, new_path)
+            remove_image_cnt += 1
+
+    print(f"删除 {remove_image_cnt} 张图片.")
+
+    rst_file_list = []
+    for doc in list(app.builder.env.all_docs):
+        rst_file_list.append(os.path.join(SRC_DIR, f"{doc}.rst"))
+
+    execute_in_parallel(format, rst_file_list)
+
+    app.build()  # 编译
+
+    if app.statuscode != 0:
+        print("错误! 编译失败,请检查输出信息.")
+        sys.exit(0)
+
+    end_time = time.time()
+    elapsed = end_time - start_time
+
+    print(f"格式化成功!,程序耗时: {elapsed:.4f} 秒")
 
 
 if __name__ == "__main__":
