@@ -9,6 +9,7 @@
 
 import os
 import multiprocessing
+import re
 from typing import List, Callable, Any
 from concurrent.futures import ProcessPoolExecutor
 from hashlib import sha1
@@ -128,6 +129,47 @@ def replace_file(file_path: str, old: str, new: str):
         content = file.read().replace(old, new)
 
     if content != "":
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(content.strip() + os.linesep)
+
+
+def format(file_path) -> None:
+    """
+    格式化
+    """
+    content = ""
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    if content != "":
+        # 替换中文标点
+        content = (
+            content.replace("。", ".")
+            .replace("，", ",")
+            .replace("（", "(")
+            .replace("）", ")")
+            .replace("、", ",")
+            .replace("！", "!")
+            .replace("：", ":")
+            .replace("“", '"')
+            .replace("”", '"')
+            .replace("；", ";")
+            .replace("？", "?")
+        )
+
+        # 去除中文之间的多余空格
+        content = re.sub(r"([\u4e00-\u9fa5]) +([\u4e00-\u9fa5])", r"\1\2", content)
+        # 去除英文之间的多余空格
+        content = re.sub(r"\b([a-zA-Z]) +([a-zA-Z])\b", r"\1 \2", content)
+        # 中英文之间添加一个空格
+        content = re.sub(r"([\u4e00-\u9fa5]) *([a-zA-Z])", r"\1 \2", content)
+        content = re.sub(r"([a-zA-Z]) *([\u4e00-\u9fa5])", r"\1 \2", content)
+        # 中文数字之间添加一个空格
+        content = re.sub(r"([\u4e00-\u9fa5]) *(\d+)", r"\1 \2", content)
+        content = re.sub(r"(\d+) *([\u4e00-\u9fa5])", r"\1 \2", content)
+        # 删除多余的换行
+        content = re.sub(r"\n\n+", r"\n\n", content)
+
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(content.strip() + os.linesep)
 
