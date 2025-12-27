@@ -121,6 +121,17 @@ def rename_files_by_sha1(root: str):
     return rename_dict
 
 
+def replace_file(file_path: str, old: str, new: str):
+    """替换更新文件"""
+    content = ""
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read().replace(old, new)
+
+    if content != "":
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(content.strip() + os.linesep)
+
+
 if __name__ == "__main__":
 
     # image_file_path_list = ["1.png", "2.png", "3.png", "4.png", "55.png", "66.png", "77.png", "88.png", "99.png", "aa.png"]
