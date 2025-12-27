@@ -6,7 +6,7 @@ pushd % ~dp0
 :: ¶¨ÒåÂ·¾¶
 set pixi_home=D:\bin\pixi-x86_64-pc-windows-msvc
 set python_home=%cd%\.pixi\envs\default
-set vscode_home=D:\bin\vs_code\VSCode-win32-x64-1.101.2_Sphinx
+set vscode_home=D:\bin\vs_code\VSCode-win32-x64-1.107.1_Sphinx
 
 set path=%pixi_home%;%python_home%;%python_home%\Library\mingw-w64\bin;%python_home%\Library\usr\bin;%python_home%\Library\bin;%python_home%\Scripts;%python_home%\bin;%vscode_home%;%path%
 
