@@ -1,3 +1,91 @@
 ========
 最佳实践
-========
+========
+
+参考资料
+--------
+
+`reStructuredText 参考 <https://documatt.com/restructuredtext-reference/>`_
+
+如何插入数学公式
+----------------
+
+如何插入代码
+--------------
+
+行内代码用两个反引号包裹,例如 ````text```` 被渲染成 ``text`` .
+
+代码块用 ``code-block`` 指令, 如下面的见 :numref:`代码块示例`
+
+.. code-block:: rst
+    :caption: 代码块示例
+    :name: 代码块示例
+
+    .. code-block:: python
+
+        i = 256 + 256
+        print('The value of i is', i)
+
+主参数用于配置语言
+:linenos: 无参数,用于显示行号
+:emphasize-lines: 参数是行号, 用于强调某一行
+:caption: 用于配置标题
+
+`内置的语法高亮语言 <https://pygments.org/languages/>`_
+
+如何插入表格
+--------------
+
+`RST 原生表格语法 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#tables>`_
+
+`Sphinx 表格增强 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tables>`_
+
+.. code-block:: rst
+    :caption: 表格示例代码_1
+    :name: 表格示例代码_1
+
+    .. table:: 学生成绩统计表  
+        :name: 表格示例_1 
+        :widths: 20, 30, 20 
+        :align: center 
+
+        +--------+--------+--------+
+        | 姓名   | 科目   | 分数   |
+        +========+========+========+
+        | 张三   | 数学   | 95     |
+        +--------+--------+--------+
+        | 李四   | 语文   | 92     |
+        +--------+--------+--------+
+
+:numref:`表格示例代码_1` 渲染效果如下 :numref:`表格示例_1`
+
+.. table:: 学生成绩统计表  
+    :name: 表格示例_1 
+    :widths: 20, 30, 20 
+    :align: center 
+
+    +--------+--------+--------+
+    | 姓名   | 科目   | 分数   |
+    +========+========+========+
+    | 张三   | 数学   | 95     |
+    +--------+--------+--------+
+    | 李四   | 语文   | 92     |
+    +--------+--------+--------+
+
+如何插入图片
+-------------------------
+
+reStructuredText (RST) 格式原生自带了 image 和 figure 这两个用于插入图片的指令. 
+其中 image 指令用于简单的图片插入,即仅插入图片,无自动编号,无标题功能. figure 指令在 image 指令的基础上提供了自动编号,标题,引用等功能.
+
+.. code-block:: rst
+
+    .. image:: /_static/images/*.png   
+        :align: center
+        :width: 90%
+
+        
+
+.. image:: /_static/cb415eae31351d256f8214b271c8b43266150368.png
+    :align: center
+    :width: 90%
