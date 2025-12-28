@@ -12,7 +12,5 @@ set path=%pixi_home%;%python_home%;%python_home%\Library\mingw-w64\bin;%python_h
 
 python source/sphinx_format.py
 
-:: »Ö¸´Ä¿Â¼
-popd
-pause
-exit /b 0
+set /p "cmd=ÔËÐÐÃüÁî [format.bat]£º" || format.bat
+

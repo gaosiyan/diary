@@ -41,7 +41,7 @@ giscus_loading = "lazy"  # 加载方式：lazy, eager
 templates_path = ["_templates"]
 exclude_patterns = []
 
-language = "zh-CN"
+language = "zh_CN"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
