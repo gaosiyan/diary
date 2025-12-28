@@ -34,26 +34,6 @@ def execute_in_parallel(func: Callable[[str], Any], arguments: List[str]) -> Lis
     return None
 
 
-def check_files_exist_parallel(file_paths: List[str]) -> List[bool]:
-    """
-    并行检查文件是否存在
-
-    Args:
-        file_paths: 文件路径列表
-
-    Returns:
-        布尔值列表，对应每个文件是否存在
-
-    Example:
-        >>> file_paths = ["/path/to/file1.txt", "/path/to/file2.txt", "/path/to/file3.txt"]
-        >>> exist_flags = check_files_exist_parallel(file_paths)
-        >>> for file_path, exists in zip(file_paths, exist_flags):
-        >>>     if not exists:
-        >>>         print(f"{file_path}: 不存在")
-    """
-    return execute_in_parallel(os.path.exists, file_paths)
-
-
 def calculate_file_sha1_code(file_path: str):
     """
     计算文件的 SHA1 码
