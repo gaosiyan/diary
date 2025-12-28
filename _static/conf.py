@@ -51,7 +51,7 @@ html_static_path = ["_static", "."]
 
 
 # 启用 numfig
-numfig = True # True 表示启用图,表格,代码块的编号,用 :numref:`name` 到对应的 图,表格,代码块
+numfig = True  # True 表示启用图,表格,代码块的编号,用 :numref:`name` 到对应的 图,表格,代码块
 
 # 图片编号深度
 numfig_secnum_depth = 0
@@ -65,5 +65,4 @@ numfig_format = {
 
 math_eqref_format = "公式-{number} "
 
-math_numfig  = True # True 表示启用公式的编号
-
+math_numfig = True  # True 表示启用公式的编号

@@ -24,12 +24,13 @@ def sphinx_format():
 
     start_time = time.time()
 
+    image_relative_dir = "_static/images"
     # Step 1. 环境配置和基线编译
     ROOT_DIR = Path(__file__).resolve().parent.parent  # Sphinx 根目录
     SRC_DIR = os.path.join(ROOT_DIR, "source")  # 源码目录
     CONFIG_DIR = SRC_DIR  # conf.py 的目录
     BUILD_DIR = os.path.join(ROOT_DIR, "build")  # 编译输出根目录
-    IMAGE_DIR = os.path.join(SRC_DIR, "_static/images")  # 图片目录
+    IMAGE_DIR = os.path.join(SRC_DIR, image_relative_dir)  # 图片目录
     HTML_DIR = os.path.join(BUILD_DIR, "html")  # HTML 输出根目录
     DOC_TREE_DIR = os.path.join(BUILD_DIR, "doctrees")  # doctrees 目录
     TEMP_DIR = os.path.join(ROOT_DIR, "TEMP")  # 源码目录
@@ -74,12 +75,11 @@ def sphinx_format():
     # Step 2. 重命名图片,并更新 rst 文档
     rename_dict = rename_files_by_sha1(IMAGE_DIR)  #  重命名文件,并返回字典,{old_name:new_name}
 
-    image_dir_name = Path(IMAGE_DIR).name
     # 更新图片
     for old_name in rename_dict:
         new_name = rename_dict[old_name]
         if old_name != new_name:
-            old_path = image_dir_name + "/" + old_name  # 将 1.png 换成 _static/1.png,因为 app.builder.env.images 是按照路径存放的
+            old_path = image_relative_dir + "/" + old_name  # 将 1.png 换成 _static/1.png,因为 app.builder.env.images 是按照路径存放的
             new_path = old_path.replace(old_name, new_name)
             if old_path in app.builder.env.images:
                 for rst_file_path in app.builder.env.images[old_path][0]:
@@ -88,7 +88,7 @@ def sphinx_format():
     # Step 3. 删除冗余图片
     remove_image_cnt = 0
     for image_file in os.listdir(IMAGE_DIR):
-        if image_dir_name + "/" + image_file not in app.builder.env.images:
+        if image_relative_dir + "/" + image_file not in app.builder.env.images:
             old_path = os.path.join(IMAGE_DIR, image_file)
             new_path = os.path.join(TEMP_DIR, image_file)
             shutil.move(old_path, new_path)
