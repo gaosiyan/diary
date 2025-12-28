@@ -46,19 +46,24 @@ language = "zh_CN"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "alabaster"
+html_theme = "furo"
 html_static_path = ["_static", "."]
 
 
 # 启用 numfig
-numfig = True
-
-# 设置图片编号格式
-numfig_format = {
-    'figure': '图 %s',
-    'table': '表 %s',
-    'code-block': '代码 %s'
-}
+numfig = True # True 表示启用图,表格,代码块的编号,用 :numref:`name` 到对应的 图,表格,代码块
 
 # 图片编号深度
 numfig_secnum_depth = 0
+
+# 设置图片编号格式
+numfig_format = {
+    "figure": "图-%s ",
+    "table": "表-%s ",
+    "code-block": "代码-%s ",
+}
+
+math_eqref_format = "公式-{number} "
+
+math_numfig  = True # True 表示启用公式的编号
+

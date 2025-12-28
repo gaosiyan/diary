@@ -2,16 +2,75 @@
 最佳实践
 ========
 
-参考资料
---------
+参考资料汇总
+------------
 
-`reStructuredText 参考 <https://documatt.com/restructuredtext-reference/>`_
+参考网站:
+
+- `reStructuredText 参考 <https://documatt.com/restructuredtext-reference/>`_
+
+如何切换 HTML 主题
+------------------
+
+本节参考资料:
+
+- `Sphinx 官方内建主题文档 <https://sphinx-doc.cn/en/master/usage/theming.html>`_
+- `Sphinx 内建和第三方主题展示 <https://sphinx-themes.org/>`_
+- `furo 主题官方文档 <https://pradyunsg.me/furo/quickstart/>`_
+
+如果使用内建主题,这里以 ``alabaster`` 主题为例,修改 ``conf.py`` 中的 ``html_theme`` 变量为 ``alabaster``, 相关代码如 :numref:`使用内建 alabaster 主题`:
+
+.. code-block:: python
+    :caption: 使用内建 alabaster 主题
+    :name: 使用内建 alabaster 主题
+
+    html_theme = "alabaster"
+
+如果使用第三方主题, 这里以 ``furo`` 主题为例:
+
+1. 安装主题 ``pixi add furo``;
+2. 参照 :numref:`使用内建 alabaster 主题` 将 ``html_theme`` 修改成 ``furo``.
+  
 
 如何插入数学公式
 ----------------
 
+本节参考资料:
+
+- `math 指令相关选项 <https://sphinx-doc.cn/en/master/usage/configuration.html#options-for-maths>`_
+
+行内数学公式:``:math:`a^2 + b^2 = c^2``` 渲染效果 :math:`a^2 + b^2 = c^2`.
+
+块级数学公式如下 :numref:`块级公式示例 1`:
+
+.. code-block:: rst
+    :caption: 块级公式示例 1
+    :name: 块级公式示例 1
+
+    .. math::
+        a^2 + b^2 = c^2
+
+渲染效果见 :eq:`块级公式示例 1`:
+
+.. math::    
+    :label: 块级公式示例 1
+
+    a^2 + b^2 = c^2
+
+数学公示的编号和引用:
+
+1. 在 ``conf.py`` 中将 ``math_numfig`` 设置为 ``True`` 表示启用数学公式编号;
+2. 在 ``conf.py`` 中将 ``math_eqref_format`` 设置为 ``"公式-{number} "`` 表示引用锚点的格式;
+3. ``math`` 指令的的 ``label`` 选项用于配置锚点, 如果没有 ``label`` 选项则不进行编号;
+4. 用 ``:eq:`锚点文本``` 或 ``:math:numref:`锚点文本``` 生成交叉引用.
+
 如何插入代码
---------------
+-------------
+
+本节参考资料:
+
+- `锚点编号规则 <https://sphinx-doc.cn/en/master/usage/configuration.html#options-for-figure-numbering>`_
+- `内置支持的语法高亮语言 <https://pygments.org/languages/>`_
 
 行内代码用两个反引号包裹,例如 ````text```` 被渲染成 ``text`` .
 
@@ -31,14 +90,13 @@
 :emphasize-lines: 参数是行号, 用于强调某一行
 :caption: 用于配置标题
 
-`内置的语法高亮语言 <https://pygments.org/languages/>`_
-
 如何插入表格
 --------------
 
-`RST 原生表格语法 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#tables>`_
+本节参考资料:
 
-`Sphinx 表格增强 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tables>`_
+- `RST 原生表格语法 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#tables>`_
+- `Sphinx 表格增强 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tables>`_
 
 .. code-block:: rst
     :caption: 表格示例代码_1
@@ -86,6 +144,6 @@ reStructuredText (RST) 格式原生自带了 image 和 figure 这两个用于插
 
         
 
-.. image:: /_static/cb415eae31351d256f8214b271c8b43266150368.png
+.. image:: /_static/images/cb415eae31351d256f8214b271c8b43266150368.png
     :align: center
     :width: 90%
