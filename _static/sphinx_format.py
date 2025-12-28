@@ -29,7 +29,7 @@ def sphinx_format():
     SRC_DIR = os.path.join(ROOT_DIR, "source")  # 源码目录
     CONFIG_DIR = SRC_DIR  # conf.py 的目录
     BUILD_DIR = os.path.join(ROOT_DIR, "build")  # 编译输出根目录
-    IMAGE_DIR = os.path.join(SRC_DIR, "_static")  # 图片目录
+    IMAGE_DIR = os.path.join(SRC_DIR, "_static/images")  # 图片目录
     HTML_DIR = os.path.join(BUILD_DIR, "html")  # HTML 输出根目录
     DOC_TREE_DIR = os.path.join(BUILD_DIR, "doctrees")  # doctrees 目录
     TEMP_DIR = os.path.join(ROOT_DIR, "TEMP")  # 源码目录

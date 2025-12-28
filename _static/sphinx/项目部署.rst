@@ -23,7 +23,7 @@ GitHub 配置
 
 创建文档主仓库 diary:
 
-.. figure:: /_static/cb415eae31351d256f8214b271c8b43266150368.png
+.. figure:: /_static/images/cb415eae31351d256f8214b271c8b43266150368.png
    :width: 80%
    :name: fig-data-flow
 
@@ -33,34 +33,34 @@ GitHub 配置
 
 创建评论仓库 diary-giscus-comments:
 
-.. figure:: /_static/34281dec3876fd628d692bc704d541380eb68139.png
+.. figure:: /_static/images/34281dec3876fd628d692bc704d541380eb68139.png
 
 开启 diary-giscus-comments 仓库 Discussions 功能:
 
 进入仓库的 Setting 页面
 
-.. figure:: /_static/e9f5805fa11c03c1d74949b825d056fc0122078c.png
+.. figure:: /_static/images/e9f5805fa11c03c1d74949b825d056fc0122078c.png
 
 访问 `giscus GitHub App <https://github.com/apps/giscus>`_  页面安装 giscus app.
 
-.. figure:: /_static/d1d8123ab12a1307c57279eca08f88d8cbb74e2b.png
+.. figure:: /_static/images/d1d8123ab12a1307c57279eca08f88d8cbb74e2b.png
 
-.. figure:: /_static/1e5012e451956613436e7e83efba002005b9a64d.png
+.. figure:: /_static/images/1e5012e451956613436e7e83efba002005b9a64d.png
 
-.. figure:: /_static/b9c3083dc3097f98674f2ac91fc6ad258c02bfd0.png
+.. figure:: /_static/images/b9c3083dc3097f98674f2ac91fc6ad258c02bfd0.png
 
 访问 `giscus <https://giscus.app/zh-CN>`_ 网站生成 giscus 配置.
 
 配置语言和仓库
 
-.. figure:: /_static/166e4f92c2ee2e3d4c0ed3be86c14829c6fee760.png
+.. figure:: /_static/images/166e4f92c2ee2e3d4c0ed3be86c14829c6fee760.png
 
 选择分类
 
 Discussion 分类
 
-.. figure:: /_static/5a271c77654fd65862f8181c645ae72e4e88a4bd.png
+.. figure:: /_static/images/5a271c77654fd65862f8181c645ae72e4e88a4bd.png
 
-.. figure:: /_static/d3e5cb05868cb83aae701002460b2a1c0f34a9a7.png
+.. figure:: /_static/images/d3e5cb05868cb83aae701002460b2a1c0f34a9a7.png
 
 123456
