@@ -48,3 +48,17 @@ language = "zh_CN"
 
 html_theme = "alabaster"
 html_static_path = ["_static", "."]
+
+
+# 启用 numfig
+numfig = True
+
+# 设置图片编号格式
+numfig_format = {
+    'figure': '图 %s',
+    'table': '表 %s',
+    'code-block': '代码 %s'
+}
+
+# 图片编号深度
+numfig_secnum_depth = 0
