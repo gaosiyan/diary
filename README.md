@@ -10,6 +10,7 @@
 
 ```bash
 pixi init
+pixi add sphinx-autobuild
 ```
 
 

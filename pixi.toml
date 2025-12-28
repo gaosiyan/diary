@@ -10,3 +10,4 @@ version = "0.1.0"
 [dependencies]
 sphinx = "8.2.3.*"
 furo = ">=2024.8.6,<2025"
+sphinx-autobuild = ">=2025.8.25,<2026"
