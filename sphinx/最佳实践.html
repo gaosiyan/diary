@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="高阶功能" href="%E9%AB%98%E9%98%B6%E5%8A%9F%E8%83%BD.html" />
+<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="next" title="项目部署" href="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html" /><link rel="prev" title="高阶功能" href="%E9%AB%98%E9%98%B6%E5%8A%9F%E8%83%BD.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>最佳实践 - diary 0.0.1 文档</title>
@@ -201,10 +201,11 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">项目部署</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.html">基础教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E9%AB%98%E9%98%B6%E5%8A%9F%E8%83%BD.html">高阶功能</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">最佳实践</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%A4%96%E9%83%A8%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB.html">外部参考资料汇总</a></li>
 </ul>
 
 </div>
@@ -247,13 +248,6 @@
         <article role="main" id="furo-main-content">
           <section id="id1">
 <h1>最佳实践<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<section id="id2">
-<h2>参考资料汇总<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>参考网站:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://documatt.com/restructuredtext-reference/">reStructuredText 参考</a></p></li>
-</ul>
-</section>
 <section id="html">
 <h2>如何切换 HTML 主题<a class="headerlink" href="#html" title="Link to this heading">¶</a></h2>
 <p>本节参考资料:</p>
@@ -275,25 +269,25 @@
 <li><p>参照 <a class="reference internal" href="#alabaster"><span class="std std-numref">代码-1 </span></a> 将 <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> 修改成 <code class="docutils literal notranslate"><span class="pre">furo</span></code>.</p></li>
 </ol>
 </section>
-<section id="id4">
-<h2>如何插入数学公式<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h2>如何插入数学公式<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <p>本节参考资料:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sphinx-doc.cn/en/master/usage/configuration.html#options-for-maths">math 指令相关选项</a></p></li>
 </ul>
 <p>行内数学公式:<code class="docutils literal notranslate"><span class="pre">:math:`a^2</span> <span class="pre">+</span> <span class="pre">b^2</span> <span class="pre">=</span> <span class="pre">c^2`</span></code> 渲染效果 <span class="math notranslate nohighlight">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>块级数学公式如下 <a class="reference internal" href="#id5"><span class="std std-numref">代码-2 </span></a>:</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-number">代码-2  </span><span class="caption-text">块级公式示例 1</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<p>块级数学公式如下 <a class="reference internal" href="#id4"><span class="std std-numref">代码-2 </span></a>:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">代码-2  </span><span class="caption-text">块级公式示例代码</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
     a^2 + b^2 = c^2
 </pre></div>
 </div>
 </div>
-<p>渲染效果见 <a class="reference internal" href="#equation-1">公式-1 </a>:</p>
-<div class="math-wrapper docutils container" id="equation-1">
-<div class="math notranslate nohighlight" id="equation-1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1" title="Link to this equation">¶</a></span>\[a^2 + b^2 = c^2\]</div>
+<p>渲染效果见 <a class="reference internal" href="#equation-2">公式-1 </a>:</p>
+<div class="math-wrapper docutils container" id="equation-2">
+<div class="math notranslate nohighlight" id="equation-2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2" title="Link to this equation">¶</a></span>\[a^2 + b^2 = c^2\]</div>
 </div>
 <p>数学公示的编号和引用:</p>
 <ol class="arabic simple">
@@ -303,17 +297,17 @@
 <li><p>用 <code class="docutils literal notranslate"><span class="pre">:eq:`锚点文本`</span></code> 或 <code class="docutils literal notranslate"><span class="pre">:math:numref:`锚点文本`</span></code> 生成交叉引用.</p></li>
 </ol>
 </section>
-<section id="id6">
-<h2>如何插入代码<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<section id="id5">
+<h2>如何插入代码<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <p>本节参考资料:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sphinx-doc.cn/en/master/usage/configuration.html#options-for-figure-numbering">锚点编号规则</a></p></li>
 <li><p><a class="reference external" href="https://pygments.org/languages/">内置支持的语法高亮语言</a></p></li>
 </ul>
 <p>行内代码用两个反引号包裹,例如 <code class="docutils literal notranslate"><span class="pre">``text``</span></code> 被渲染成 <code class="docutils literal notranslate"><span class="pre">text</span></code> .</p>
-<p>代码块用 <code class="docutils literal notranslate"><span class="pre">code-block</span></code> 指令, 如下面的见 <a class="reference internal" href="#id9"><span class="std std-numref">代码-3 </span></a></p>
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-number">代码-3  </span><span class="caption-text">代码块示例</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<p>代码块用 <code class="docutils literal notranslate"><span class="pre">code-block</span></code> 指令, 如下面的见 <a class="reference internal" href="#id8"><span class="std std-numref">代码-3 </span></a></p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-number">代码-3  </span><span class="caption-text">代码块示例代码</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">python</span>
 
     <span class="n">i</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">+</span> <span class="mi">256</span>
@@ -326,17 +320,17 @@
 :emphasize-lines: 参数是行号, 用于强调某一行
 :caption: 用于配置标题</p>
 </section>
-<section id="id10">
-<h2>如何插入表格<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h2>如何插入表格<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <p>本节参考资料:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#tables">RST 原生表格语法</a></p></li>
 <li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tables">Sphinx 表格增强</a></p></li>
 </ul>
-<div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-number">代码-4  </span><span class="caption-text">表格示例代码_1</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-number">代码-4  </span><span class="caption-text">表格示例代码</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">table</span><span class="p">::</span> 学生成绩统计表
-    <span class="nc">:name:</span> 表格示例_1
+    <span class="nc">:name:</span> 表格示例 1
     <span class="nc">:widths:</span> 20, 30, 20
     <span class="nc">:align:</span> center
 
@@ -350,10 +344,10 @@
 </pre></div>
 </div>
 </div>
-<p><a class="reference internal" href="#id12"><span class="std std-numref">代码-4 </span></a> 渲染效果如下 <a class="reference internal" href="#id13"><span class="std std-numref">表-1 </span></a></p>
-<div class="table-wrapper colwidths-given docutils container" id="id13">
-<table class="docutils align-center" id="id13">
-<caption><span class="caption-number">表-1  </span><span class="caption-text">学生成绩统计表</span><a class="headerlink" href="#id13" title="Link to this table">¶</a></caption>
+<p><a class="reference internal" href="#id11"><span class="std std-numref">代码-4 </span></a> 渲染效果如下 <a class="reference internal" href="#id12"><span class="std std-numref">表-1 </span></a></p>
+<div class="table-wrapper colwidths-given docutils container" id="id12">
+<table class="docutils align-center" id="id12">
+<caption><span class="caption-number">表-1  </span><span class="caption-text">学生成绩统计表</span><a class="headerlink" href="#id12" title="Link to this table">¶</a></caption>
 <colgroup>
 <col style="width: 28.6%" />
 <col style="width: 42.9%" />
@@ -378,8 +372,8 @@
 </table>
 </div>
 </section>
-<section id="id14">
-<h2>如何插入图片<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<section id="id13">
+<h2>如何插入图片<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
 <p>reStructuredText (RST) 格式原生自带了 image 和 figure 这两个用于插入图片的指令.
 其中 image 指令用于简单的图片插入,即仅插入图片,无自动编号,无标题功能. figure 指令在 image 指令的基础上提供了自动编号,标题,引用等功能.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /_static/images/*.png
@@ -390,6 +384,103 @@
 <a class="reference internal image-reference" href="../_images/cb415eae31351d256f8214b271c8b43266150368.png"><img alt="../_images/cb415eae31351d256f8214b271c8b43266150368.png" class="align-center" src="../_images/cb415eae31351d256f8214b271c8b43266150368.png" style="width: 90%;" />
 </a>
 </section>
+<section id="id14">
+<h2>如何插入脚注<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<p>从语义和排版惯例来看,脚注的核心作用是承载那些对理解主线并非必需,但又有价值,需要被记录的补充信息.其设计初衷是避免打断正文的阅读流.例如:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>标注正文观点,数据,结论的来源,既不干扰正文阅读流,又能为读者提供溯源依据:</dt><dd><ol class="arabic simple">
+<li><dl class="simple">
+<dt>期刊论文引用:</dt><dd><ul>
+<li><p>正文引用标记用方括号编号或者 <code class="docutils literal notranslate"><span class="pre">作者.</span> <span class="pre">(出版年份)</span></code>;</p></li>
+<li><p>脚注内容 <code class="docutils literal notranslate"><span class="pre">作者.</span> <span class="pre">(出版年份).</span> <span class="pre">文章标题.</span> <span class="pre">期刊名,</span> <span class="pre">卷号(期号),</span> <span class="pre">页码</span></code>;</p></li>
+<li><dl class="simple">
+<dt>示例:</dt><dd><ul>
+<li><p>一项近期研究 (Zhang, W. (2023)) 指出...</p></li>
+<li><p>Zhang, W. (2023). The future of artificial intelligence in education. Educational Technology Review, 15(2), 45-67.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>书籍引用:</dt><dd><ul>
+<li><p>正文引用标记用方括号编号或者 <code class="docutils literal notranslate"><span class="pre">作者,</span> <span class="pre">年份,</span> <span class="pre">p.</span> <span class="pre">页码</span></code>,其中 p 表示单个页面,pp 多个页面 x-y;</p></li>
+<li><p>脚注内容 <code class="docutils literal notranslate"><span class="pre">作者.</span> <span class="pre">(出版年份).</span> <span class="pre">书名</span> <span class="pre">(版次).</span> <span class="pre">出版社.</span></code>;</p></li>
+<li><dl class="simple">
+<dt>示例:</dt><dd><ul>
+<li><p>该技术已被详细讨论 (Li &amp; Wang, 2021, pp. 112-130)...</p></li>
+<li><p>Li, X., &amp; Wang, H. (2021). Data mining techniques (3rd ed.). Springer.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>网页 / 在线资源引用:</dt><dd><ul>
+<li><p>正文引用标记用方括号编号或者 <code class="docutils literal notranslate"><span class="pre">发布机构,</span> <span class="pre">年,</span> <span class="pre">月日</span></code>;</p></li>
+<li><p>脚注内容 <code class="docutils literal notranslate"><span class="pre">发布机构.</span> <span class="pre">(发布年,</span> <span class="pre">月日).</span> <span class="pre">网页标题.</span> <span class="pre">网站名.</span> <span class="pre">检索地址</span></code>;</p></li>
+<li><dl class="simple">
+<dt>示例:</dt><dd><ul>
+<li><p>根据官方指南 (World Health Organization, 2022)...</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">World</span> <span class="pre">Health</span> <span class="pre">Organization.</span> <span class="pre">(2022,</span> <span class="pre">July</span> <span class="pre">15).</span> <span class="pre">*Coronavirus</span> <span class="pre">disease</span> <span class="pre">(COVID-19)</span> <span class="pre">pandemic*.</span> <span class="pre">Retrieved</span> <span class="pre">from</span> <span class="pre">https://www.who.int/emergencies/diseases/novel-coronavirus-2019</span></code>.  <code class="docutils literal notranslate"><span class="pre">*</span></code> 表示斜体, <code class="docutils literal notranslate"><span class="pre">Retrieved</span> <span class="pre">from</span></code> 表示检索自.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p>补充性背景/溯源信息: 提供有助于理解但非核心的历史背景或技术背景,例如 <code class="docutils literal notranslate"><span class="pre">Sphinx</span> <span class="pre">是一款强大的文档生成工具,最初为</span> <span class="pre">Python</span> <span class="pre">官方文档设(插入脚注).</span></code>. 脚注内容为:<code class="docutils literal notranslate"><span class="pre">由</span> <span class="pre">Georg</span> <span class="pre">Brandl</span> <span class="pre">开发,基于</span> <span class="pre">reStructuredText</span> <span class="pre">语法,目前已广泛用于各类编程语言项目的文档生成.</span></code></p></li>
+<li><p>版权与许可: 版权与许可注明图片的出处,作者和授权协议.</p></li>
+</ul>
+<p>在插入脚注的位置将自动进行编号,脚注的具体内容在当前页面下方显示,脚注有两种形式:</p>
+<ol class="arabic">
+<li><p>自动编号形式:</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-number">代码-5  </span><span class="caption-text">自动编号脚注示例代码</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Sphinx 是一款强大的文档生成工具 <span class="s">[#]_</span>,最初为 Python 官方文档设计 <span class="s">[#]_</span>.
+
+<span class="c">.. 脚注定义放在文档任意位置(通常在章节末尾)</span>
+<span class="p">..</span> <span class="nt">[#]</span> 由 Georg Brandl 开发,基于 reStructuredText 语法.
+<span class="p">..</span> <span class="nt">[#]</span> 目前已广泛用于各类编程语言项目的文档生成.
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+<li><p>命名形式:</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-number">代码-6  </span><span class="caption-text">命名形式脚注示例代码</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Sphinx 是一款强大的文档生成工具 <span class="s">[#脚注_1]_</span>,最初为 Python 官方文档设计 <span class="s">[#脚注_2]_</span>.
+
+<span class="c">.. 脚注定义放在文档任意位置(通常在章节末尾)</span>
+<span class="p">..</span> <span class="nt">[#脚注_1]</span> 由 Georg Brandl 开发,基于 reStructuredText 语法.
+<span class="p">..</span> <span class="nt">[#脚注_2]</span> 目前已广泛用于各类编程语言项目的文档生成.
+</pre></div>
+</div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<aside class="topic">
+<p class="topic-title">LaTex 中的脚注</p>
+<p>在 LaTex 中用 <code class="docutils literal notranslate"><span class="pre">\footnote{脚注内容}</span></code> 在当前位置插入脚注,即脚注内容和正文在一起. 在 Sphinx 中没有这种形式.</p>
+</aside>
+</section>
 </section>
 
         </article>
@@ -397,7 +488,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">项目部署</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="%E9%AB%98%E9%98%B6%E5%8A%9F%E8%83%BD.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -440,12 +539,12 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">最佳实践</a><ul>
-<li><a class="reference internal" href="#id2">参考资料汇总</a></li>
 <li><a class="reference internal" href="#html">如何切换 HTML 主题</a></li>
-<li><a class="reference internal" href="#id4">如何插入数学公式</a></li>
-<li><a class="reference internal" href="#id6">如何插入代码</a></li>
-<li><a class="reference internal" href="#id10">如何插入表格</a></li>
-<li><a class="reference internal" href="#id14">如何插入图片</a></li>
+<li><a class="reference internal" href="#id3">如何插入数学公式</a></li>
+<li><a class="reference internal" href="#id5">如何插入代码</a></li>
+<li><a class="reference internal" href="#id9">如何插入表格</a></li>
+<li><a class="reference internal" href="#id13">如何插入图片</a></li>
+<li><a class="reference internal" href="#id14">如何插入脚注</a></li>
 </ul>
 </li>
 </ul>

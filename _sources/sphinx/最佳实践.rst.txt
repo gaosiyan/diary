@@ -2,13 +2,6 @@
 最佳实践
 ========
 
-参考资料汇总
-------------
-
-参考网站:
-
-- `reStructuredText 参考 <https://documatt.com/restructuredtext-reference/>`_
-
 如何切换 HTML 主题
 ------------------
 
@@ -30,7 +23,6 @@
 
 1. 安装主题 ``pixi add furo``;
 2. 参照 :numref:`使用内建 alabaster 主题` 将 ``html_theme`` 修改成 ``furo``.
-  
 
 如何插入数学公式
 ----------------
@@ -41,19 +33,19 @@
 
 行内数学公式:``:math:`a^2 + b^2 = c^2``` 渲染效果 :math:`a^2 + b^2 = c^2`.
 
-块级数学公式如下 :numref:`块级公式示例 1`:
+块级数学公式如下 :numref:`块级公式示例代码 1`:
 
 .. code-block:: rst
-    :caption: 块级公式示例 1
-    :name: 块级公式示例 1
+    :caption: 块级公式示例代码
+    :name: 块级公式示例代码 1
 
     .. math::
         a^2 + b^2 = c^2
 
-渲染效果见 :eq:`块级公式示例 1`:
+渲染效果见 :eq:`块级公式示例代码 2`:
 
 .. math::    
-    :label: 块级公式示例 1
+    :label: 块级公式示例代码 2
 
     a^2 + b^2 = c^2
 
@@ -74,11 +66,11 @@
 
 行内代码用两个反引号包裹,例如 ````text```` 被渲染成 ``text`` .
 
-代码块用 ``code-block`` 指令, 如下面的见 :numref:`代码块示例`
+代码块用 ``code-block`` 指令, 如下面的见 :numref:`代码块示例代码 1`
 
 .. code-block:: rst
-    :caption: 代码块示例
-    :name: 代码块示例
+    :caption: 代码块示例代码
+    :name: 代码块示例代码 1
 
     .. code-block:: python
 
@@ -99,11 +91,11 @@
 - `Sphinx 表格增强 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tables>`_
 
 .. code-block:: rst
-    :caption: 表格示例代码_1
-    :name: 表格示例代码_1
+    :caption: 表格示例代码
+    :name: 表格示例代码 1
 
     .. table:: 学生成绩统计表  
-        :name: 表格示例_1 
+        :name: 表格示例 1 
         :widths: 20, 30, 20 
         :align: center 
 
@@ -115,10 +107,10 @@
         | 李四   | 语文   | 92     |
         +--------+--------+--------+
 
-:numref:`表格示例代码_1` 渲染效果如下 :numref:`表格示例_1`
+:numref:`表格示例代码 1` 渲染效果如下 :numref:`表格示例代码 2`
 
 .. table:: 学生成绩统计表  
-    :name: 表格示例_1 
+    :name: 表格示例代码 2
     :widths: 20, 30, 20 
     :align: center 
 
@@ -146,4 +138,62 @@ reStructuredText (RST) 格式原生自带了 image 和 figure 这两个用于插
 
 .. image:: /_static/images/cb415eae31351d256f8214b271c8b43266150368.png
     :align: center
-    :width: 90%
+    :width: 90%
+
+如何插入脚注
+--------------------
+
+从语义和排版惯例来看,脚注的核心作用是承载那些对理解主线并非必需,但又有价值,需要被记录的补充信息.其设计初衷是避免打断正文的阅读流.例如:
+
+- 标注正文观点,数据,结论的来源,既不干扰正文阅读流,又能为读者提供溯源依据:
+    1. 期刊论文引用:
+        - 正文引用标记用方括号编号或者 ``作者. (出版年份)``;
+        - 脚注内容 ``作者. (出版年份). 文章标题. 期刊名, 卷号(期号), 页码``;
+        - 示例: 
+            - 一项近期研究 (Zhang, W. (2023)) 指出...
+            - Zhang, W. (2023). The future of artificial intelligence in education. Educational Technology Review, 15(2), 45-67.        
+    2. 书籍引用:
+        - 正文引用标记用方括号编号或者 ``作者, 年份, p. 页码``,其中 p 表示单个页面,pp 多个页面 x-y;
+        - 脚注内容 ``作者. (出版年份). 书名 (版次). 出版社.``;
+        - 示例:
+            - 该技术已被详细讨论 (Li & Wang, 2021, pp. 112-130)...
+            - Li, X., & Wang, H. (2021). Data mining techniques (3rd ed.). Springer.     
+    3. 网页 / 在线资源引用:
+        - 正文引用标记用方括号编号或者 ``发布机构, 年, 月日``;
+        - 脚注内容 ``发布机构. (发布年, 月日). 网页标题. 网站名. 检索地址``;
+        - 示例:
+            - 根据官方指南 (World Health Organization, 2022)...
+            - ``World Health Organization. (2022, July 15). *Coronavirus disease (COVID-19) pandemic*. Retrieved from https://www.who.int/emergencies/diseases/novel-coronavirus-2019``.  ``*`` 表示斜体, ``Retrieved from`` 表示检索自.
+    
+- 补充性背景/溯源信息: 提供有助于理解但非核心的历史背景或技术背景,例如 ``Sphinx 是一款强大的文档生成工具,最初为 Python 官方文档设(插入脚注).``. 脚注内容为:``由 Georg Brandl 开发,基于 reStructuredText 语法,目前已广泛用于各类编程语言项目的文档生成.``
+- 版权与许可: 版权与许可注明图片的出处,作者和授权协议.
+
+在插入脚注的位置将自动进行编号,脚注的具体内容在当前页面下方显示,脚注有两种形式:
+
+1. 自动编号形式:
+
+    .. code-block:: rst
+        :caption: 自动编号脚注示例代码
+        :name: 脚注示例代码 1
+
+        Sphinx 是一款强大的文档生成工具 [#]_,最初为 Python 官方文档设计 [#]_.
+
+        .. 脚注定义放在文档任意位置(通常在章节末尾)
+        .. [#] 由 Georg Brandl 开发,基于 reStructuredText 语法.
+        .. [#] 目前已广泛用于各类编程语言项目的文档生成.
+
+2. 命名形式:
+
+    .. code-block:: rst
+        :caption: 命名形式脚注示例代码
+        :name: 脚注示例代码 2
+
+        Sphinx 是一款强大的文档生成工具 [#脚注_1]_,最初为 Python 官方文档设计 [#脚注_2]_.
+
+        .. 脚注定义放在文档任意位置(通常在章节末尾)
+        .. [#脚注_1] 由 Georg Brandl 开发,基于 reStructuredText 语法.
+        .. [#脚注_2] 目前已广泛用于各类编程语言项目的文档生成.
+
+.. topic:: LaTex 中的脚注
+    
+    在 LaTex 中用 ``\footnote{脚注内容}`` 在当前位置插入脚注,即脚注内容和正文在一起. 在 Sphinx 中没有这种形式.
