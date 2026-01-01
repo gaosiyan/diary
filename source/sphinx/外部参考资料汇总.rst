@@ -1,0 +1,10 @@
+===================
+外部参考资料汇总
+===================
+
+参考网站:
+
+- `Sphinx 官方文档 <https://sphinx-doc.cn/en/master/>`_
+- `Write the Docs <https://www.writethedocs.org/>`_
+- `documatt reStructuredText 参考 <https://documatt.com/restructuredtext-reference/>`_
+- `documatt Sphinx 错误处理指南 <https://documatt.com/sphinx-errors/>`_
