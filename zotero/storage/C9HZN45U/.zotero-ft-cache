@@ -1,0 +1,1199 @@
+by Mark Wickert, PhD
+Signals & Systems
+
+
+Signals & Systems For Dummies® Published by
+John Wiley & Sons, Inc. 111 River St. Hoboken, NJ 07030-5774 www.wiley.com
+Copyright © 2013 by John Wiley & Sons, Inc., Hoboken, New Jersey
+Published simultaneously in Canada
+No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or by any means, electronic, mechanical, photocopying, recording, scanning or otherwise, except as permitted under Sections 107 or 108 of the 1976 United States Copyright Act, without the prior written permission of the Publisher. Requests to the Publisher for permission should be addressed to the Permissions Department, John Wiley & Sons, Inc., 111 River Street, Hoboken, NJ 07030, (201) 748-6011, fax (201) 7486008, or online at http://www.wiley.com/go/permissions.
+Trademarks: Wiley, the Wiley logo, For Dummies, the Dummies Man logo, A Reference for the Rest of Us!, The Dummies Way, Dummies Daily, The Fun and Easy Way, Dummies.com, Making Everything Easier, and related trade dress are trademarks or registered trademarks of John Wiley & Sons, Inc., and/or its affiliates in the United States and other countries, and may not be used without written permission. All other trademarks are the property of their respective owners. John Wiley & Sons, Inc., is not associated with any product or vendor mentioned in this book.
+LIMIT OF LIABILITY/DISCLAIMER OF WARRANTY: THE PUBLISHER AND THE AUTHOR MAKE NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE ACCURACY OR COMPLETENESS OF THE CONTENTS OF THIS WORK AND SPECIFICALLY DISCLAIM ALL WARRANTIES, INCLUDING WITHOUT LIMITATION WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE. NO WARRANTY MAY BE CREATED OR EXTENDED BY SALES OR PROMOTIONAL MATERIALS. THE ADVICE AND STRATEGIES CONTAINED HEREIN MAY NOT BE SUITABLE FOR EVERY SITUATION. THIS WORK IS SOLD WITH THE UNDERSTANDING THAT THE PUBLISHER IS NOT ENGAGED IN RENDERING LEGAL, ACCOUNTING, OR OTHER PROFESSIONAL SERVICES. IF PROFESSIONAL ASSISTANCE IS REQUIRED, THE SERVICES OF A COMPETENT PROFESSIONAL PERSON SHOULD BE SOUGHT. NEITHER THE PUBLISHER NOR THE AUTHOR SHALL BE LIABLE FOR DAMAGES ARISING HEREFROM. THE FACT THAT AN ORGANIZATION OR WEBSITE IS REFERRED TO IN THIS WORK AS A CITATION AND/OR A POTENTIAL SOURCE OF FURTHER INFORMATION DOES NOT MEAN THAT THE AUTHOR OR THE PUBLISHER ENDORSES THE INFORMATION THE ORGANIZATION OR WEBSITE MAY PROVIDE OR RECOMMENDATIONS IT MAY MAKE. FURTHER, READERS SHOULD BE AWARE THAT INTERNET WEBSITES LISTED IN THIS WORK MAY HAVE CHANGED OR DISAPPEARED BETWEEN WHEN THIS WORK WAS WRITTEN AND WHEN IT IS READ.
+For general information on our other products and services, please contact our Customer Care Department within the U.S. at 877-762-2974, outside the U.S. at 317-572-3993, or fax 317-572-4002.
+For technical support, please visit www.wiley.com/techsupport.
+Wiley publishes in a variety of print and electronic formats and by print-on-demand. Some material included with standard print versions of this book may not be included in e-books or in print-on-demand. If this book refers to media such as a CD or DVD that is not included in the version you purchased, you may download this material at http://booksupport.wiley.com. For more information about Wiley products, visit www.wiley.com.
+Library of Congress Control Number: 2013934418
+ISBN 978-1-118-47581-2 (pbk); ISBN 978-1-118-47566-9 (ebk); ISBN 978-1-118-47582-9 (ebk); ISBN 978-1-118-47583-6 (ebk)
+Manufactured in the United States of America
+10 9 8 7 6 5 4 3 2 1
+
+
+About the Author
+Mark Wickert is a professor of electrical and computer engineering at the University of Colorado, Colorado Springs, Colorado. His teaching focus is signals and systems with an emphasis in communications and signal processing. Mark was previously a board-level designer at Motorola Government Electronics, now a division of General Dynamics.
+Mark also works as an industry consultant in digital communications and signal processing for Amergint Technologies LLC. He’s worked with Real Time Logic and developed algorithms for a ZIGBEE radio chip at Atmel Corporation as well.
+Mark earned BS and MS degrees in electrical engineering from Michigan Technological University and PhD from Missouri University of Science and Technology (then UMR). He is a member of the Institute of Electrical and Electronics Engineers.
+
+
+
+
+Dedication
+To Becki, David, and Paul — my family.
+To God be the glory!
+Author’s Acknowledgments
+This project started with an invitation from my agent, Matt, and a strong dose of encouragement from my wife, Becki, who endured a lot of changes that came with my focus on developing material for this book. My sons, David and Paul, had to accept seeing less of me, too, especially during our summer vacation. Thank you all for your support and encouragement throughout this process.
+Thanks, too, to my faculty peers — Greg, Kalkur, and Charlie — for all your encouragement. And I appreciate that Amergint Technologies allowed me do some of the writing at its offices and provided an environment that let me explore the capabilities of Python. Thanks Jeff, Sean, Mark, and Mark.
+The staff at Wiley was also very encouraging along the way. I especially want to thank my project editor, Jenny Brown, and my acquisitions editor, Erin Mooney. I know I was stubborn at times, and I am thankful you kept me going. Thanks, too, to copy editor Jennette ElNaggar for making sure my t’s are crossed and i’s are dotted.
+Great appreciation goes to Christopher L. Felton, electrical engineer at the Mayo Clinic, for providing the technical review to ensure that the information provided in this book is valuable to the people for whom it’s written. I am also grateful for the help provided by PhD student McKenna Lovejoy, who was willing to jump onboard and provide a fresh eye on this material during the final phases of editing.
+To veteran book author, dissertation advisor, fellow faculty member prior to retirement, and still close friend, Rodger Ziemer, thank you for your invaluable support.
+Finally, to my dad. Thanks for encouraging my middle-school interest in building electronic gadgets. You spurred my lifelong love for building hardware, software, and countless other things — I’ll always be grateful.
+
+
+Publisher’s Acknowledgments
+We’re proud of this book; please send us your comments at http://dummies.custhelp.com. For other comments, please contact our Customer Care Department within the U.S. at 877-762-2974, outside the U.S. at 317-572-3993, or fax 317-572-4002.
+Some of the people who helped bring this book to market include the following:
+Acquisitions, Editorial, and Vertical Websites
+Project Editor: Jenny Larner Brown
+Acquisitions Editor: Erin Calligan Mooney
+Copy Editor: Jennette ElNaggar
+Assistant Editor: David Lutton
+Editorial Program Coordinator: Joe Niesen
+Technical Editors: Christopher L. Felton
+Editorial Manager: Christine Meloy Beck
+Editorial Assistant: Alexa Koschier
+Cover Photos: © agsandrew/iStockphoto.com
+Composition Services
+Project Coordinator: Patrick Redmond
+Layout and Graphics: Carrie A. Cesavice, Brent Savage, Christin Swinford, Erin Zeltner
+Proofreaders: John Greenough,
+Lauren Mandelbaum, Wordsmith Editorial
+Indexer: Steve Rath
+Illustrations courtesy of Mark Wickert, PhD
+Publishing and Editorial for Consumer Dummies
+Kathleen Nebenhaus, Vice President and Executive Publisher
+David Palmer, Associate Publisher
+Kristin Ferguson-Wagstaffe, Product Development Director
+Publishing for Technology Dummies
+Andy Cummings, Vice President and Publisher
+Composition Services
+Debbie Stailey, Director of Composition Services
+
+
+Contents at a Glance
+Introduction ................................................................ 1
+Part I: Getting Started with Signals and Systems ........... 7
+Chapter 1: Introducing Signals and Systems.................................................................. 9 Chapter 2: Brushing Up on Math ................................................................................... 29 Chapter 3: Continuous-Time Signals and Systems ...................................................... 51 Chapter 4: Discrete-Time Signals and Systems............................................................ 77
+Part II: Exploring the Time Domain.............................. 97
+Chapter 5: Continuous-Time LTI Systems and the Convolution Integral ................. 99 Chapter 6: Discrete-Time LTI Systems and the Convolution Sum........................... 119
+Chapter 7: LTI System Differential and Difference Equations in the Time Domain..................................................................................................... 149
+Part III: Picking Up the Frequency Domain ............... 163
+Chapter 8: Line Spectra and Fourier Series of Periodic Continuous-Time Signals ............................................................................................ 165 Chapter 9: The Fourier Transform for Continuous-Time Signals and Systems ..... 191 Chapter 10: Sampling Theory....................................................................................... 219 Chapter 11: The Discrete-Time Fourier Transform for Discrete-Time Signals....... 241
+Chapter 12: The Discrete Fourier Transform and Fast Fourier Transform Algorithms................................................................... 263
+Part IV: Entering the s- and z-Domains...................... 283
+Chapter 13: The Laplace Transform for Continuous-Time....................................... 285 Chapter 14: The z-Transform for Discrete-Time Signals........................................... 307 Chapter 15: Putting It All Together: Analysis and Modeling Across Domains....... 327
+Part V: The Part of Tens ........................................... 343
+Chapter 16: More Than Ten Common Mistakes to Avoid When Solving Problems.............................................................................................. 345 Chapter 17: Ten Properties You Never Want to Forget ............................................ 351
+Index ...................................................................... 355
+
+
+
+
+Table of Contents
+Introduction ................................................................. 1
+About This Book .............................................................................................. 1 Conventions Used in This Book..................................................................... 1 What You’re Not to Read................................................................................ 2 Foolish Assumptions....................................................................................... 2 How This Book Is Organized .......................................................................... 2 Part I: Getting Started with Signals and Systems ............................... 3 Part II: Exploring the Time Domain ..................................................... 3 Part III: Picking Up the Frequency Domain......................................... 3 Part IV: Entering the s- and z-Domains ................................................ 3 Part V: The Part of Tens........................................................................ 4 Icons Used in This Book ................................................................................. 4 Where to Go from Here................................................................................... 4
+Part I: Getting Started with Signals and Systems............ 7
+Chapter 1: Introducing Signals and Systems 9
+Applying Mathematics .................................................................................. 10 Getting Mixed Signals . . . and Systems....................................................... 11 Going on and on and on ...................................................................... 11 Working in spurts: Discrete-time signals and systems ................... 13 Classifying Signals ......................................................................................... 14 Periodic ................................................................................................. 14 Aperiodic............................................................................................... 15 Random ................................................................................................. 15 Signals and Systems in Other Domains ...................................................... 16 Viewing signals in the frequency domain ......................................... 16 Traveling to the s- or z-domain and back.......................................... 18 Testing Product Concepts with Behavioral Level Modeling.................... 18 Staying abstract to generate ideas .................................................... 19 Working from the top down ............................................................... 19 Relying on mathematics...................................................................... 20 Exploring Familiar Signals and Systems ..................................................... 20 MP3 music player................................................................................. 21 Smartphone .......................................................................................... 22 Automobile cruise control.................................................................. 22 Using Computer Tools for Modeling and Simulation................................ 23 Getting the software ............................................................................ 24 Exploring the interfaces...................................................................... 25 Seeing the Big Picture ................................................................................... 26
+
+
+Signals & Systems For Dummies
+x
+Chapter 2: Brushing Up on Math 29
+Revealing Unknowns with Algebra .............................................................. 29 Solving for two variables .................................................................... 30 Checking solutions with computer tools.......................................... 30 Exploring partial fraction expansion................................................. 31 Making Nice Signal Models with Trig Functions........................................ 35 Manipulating Numbers: Essential Complex Arithmetic............................ 36 Believing in imaginary numbers ........................................................ 37 Operating with the basics................................................................... 39 Applying Euler’s identities.................................................................. 41 Applying the phasor addition formula.............................................. 42 Catching Up with Calculus ........................................................................... 44 Differentiation ...................................................................................... 44 Integration ............................................................................................ 45 System performance............................................................................ 47 Geometric series .................................................................................. 48 Finding Polynomial Roots............................................................................. 50
+Chapter 3: Continuous-Time Signals and Systems 51
+Considering Signal Types ............................................................................. 52 Exponential and sinusoidal signals ................................................... 52 Singularity and other special signal types........................................ 55 Getting Hip to Signal Classifications ........................................................... 60 Deterministic and random.................................................................. 60 Periodic and aperiodic........................................................................ 62 Considering power and energy .......................................................... 63 Even and odd signals........................................................................... 68 Transforming Simple Signals........................................................................ 69 Time shifting......................................................................................... 69 Flipping the time axis .......................................................................... 70 Putting it together: Shift and flip........................................................ 70 Superimposing signals ........................................................................ 71 Checking Out System Properties................................................................. 72 Linear and nonlinear ........................................................................... 73 Time-invariant and time varying........................................................ 73 Causal and non-causal......................................................................... 74 Memory and memoryless ................................................................... 74 Bounded-input bounded-output ........................................................ 75 Choosing Linear and Time-Invariant Systems ........................................... 75
+Chapter 4: Discrete-Time Signals and Systems 77
+Exploring Signal Types.................................................................................. 77 Exponential and sinusoidal signals ................................................... 78 Special signals ...................................................................................... 80 Surveying Signal Classifications in the Discrete-Time World .................. 83 Deterministic and random signals..................................................... 84 Periodic and aperiodic........................................................................ 85 Recognizing energy and power signals............................................. 88
+
+
+xi
+Table of Contents
+Computer Processing: Capturing Real Signals in Discrete-Time ............. 89 Capturing and reading a wav file ....................................................... 90 Finding the signal energy.................................................................... 91 Classifying Systems in Discrete-Time ......................................................... 92 Checking linearity ................................................................................ 92 Investigating time invariance ............................................................. 93 Looking into causality ......................................................................... 93 Figuring out memory ........................................................................... 94 Testing for BIBO stability.................................................................... 95
+Part II: Exploring the Time Domain .............................. 97
+Chapter 5: Continuous-Time LTI Systems and the Convolution Integral 99
+Establishing a General Input/Output Relationship ................................. 100 LTI systems and the impulse response........................................... 100 Developing the convolution integral ............................................... 101 Looking at useful convolution integral properties ........................ 103 Working with the Convolution Integral .................................................... 105 Seeing the general solution first ...................................................... 105 Solving problems with finite extent signals.................................... 107 Dealing with semi-infinite limits....................................................... 111 Stepping Out and More ............................................................................... 116 Step response from impulse response............................................ 116 BIBO stability implications ............................................................... 117 Causality and the impulse response ............................................... 117
+Chapter 6: Discrete-Time LTI Systems and the Convolution Sum 119
+Specializing the Input/Output Relationship ............................................. 120 Using LTI systems and the impulse response (sequence) ........... 120 Getting to the convolution sum ....................................................... 121 Simplifying with Convolution Sum Properties and Techniques ............ 124 Applying commutative, associative, and distributive properties........................................................... 124 Convolving with the impulse function ............................................ 126 Transforming a sequence ................................................................. 126 Solving convolution of finite duration sequences ......................... 128 Working with the Convolution Sum .......................................................... 133 Using spreadsheets and a tabular approach.................................. 133 Attacking the sum directly with geometric series......................... 136 Connecting the step response and impulse response .................. 144 Checking the BIBO stability.............................................................. 145 Checking for system causality ......................................................... 146
+
+
+Signals & Systems For Dummies
+xii
+Chapter 7: LTI System Differential and Difference Equations in the Time Domain 149
+Getting Differential ...................................................................................... 150 Introducing the general Nth-order system ..................................... 150 Considering sinusoidal outputs in steady state............................. 151 Finding the frequency response in general Nth-order LCC differential equations ............................................................ 153 Checking out the Difference Equations .................................................... 156 Modeling a system using a general Nth-order LCC difference equation ................................................................ 156 Using recursion to find the impulse response of a first-order system ................................................................... 158 Considering sinusoidal outputs in steady state............................. 159 Solving for the general Nth-order LCC difference equation frequency response....................................................... 161
+Part III: Picking Up the Frequency Domain ................ 163
+Chapter 8: Line Spectra and Fourier Series of Periodic Continuous-Time Signals 165
+Sinusoids in the Frequency Domain.......................................................... 166 Viewing signals from the amplitude, phase, and frequency parameters............................................................ 167 Forming magnitude and phase line spectra plots ......................... 168 Working with symmetry properties for real signals...................... 171 Exploring spectral occupancy and shared resources................... 171 Establishing a sum of sinusoids: Periodic and aperiodic ............. 172 General Periodic Signals: The Fourier Series Representation ............... 175 Analysis: Finding the coefficients .................................................... 176 Synthesis: Returning to a general periodic signal, almost ........... 178 Checking out waveform examples................................................... 179 Working problems with coefficient formulas and properties................................................................ 186
+Chapter 9: The Fourier Transform for Continuous-Time Signals and Systems 191
+Tapping into the Frequency Domain for Aperiodic Energy Signals ...... 192 Working with the Fourier series ...................................................... 192 Using the Fourier transform and its inverse .................................. 194 Getting amplitude and phase spectra ............................................. 197 Seeing the symmetry properties for real signals........................... 197 Finding energy spectral density with Parseval’s theorem ........... 201 Applying Fourier transform theorems ............................................ 203 Checking out transform pairs........................................................... 208
+
+
+xiii
+Table of Contents
+Getting Around the Rules with Fourier Transforms in the Limit .......... 210 Handling singularity functions ......................................................... 210 Unifying the spectral view with periodic signals........................... 211 LTI Systems in the Frequency Domain ..................................................... 213 Checking out the frequency response ............................................ 214 Evaluating properties of the frequency response ......................... 214 Getting connected with cascade and parallel systems................. 216 Ideal filters .......................................................................................... 216 Realizable filters................................................................................. 218
+Chapter 10: Sampling Theory 219
+Seeing the Need for Sampling Theory....................................................... 220 Periodic Sampling of a Signal: The ADC.................................................... 221 Analyzing the Impact of Quantization Errors in the ADC....................... 226 Analyzing Signals in the Frequency Domain ............................................ 228 Impulse train to impulse train Fourier transform theorem.......... 229 Finding the spectrum of a sampled bandlimited signal................ 230 Aliasing and the folded spectrum.................................................... 233 Applying the Low-Pass Sampling Theorem.............................................. 233 Reconstructing a Bandlimited Signal from Its Samples: The DAC......... 234 Interpolating with an ideal low-pass filter ...................................... 236 Using a realizable low-pass filter for interpolation........................ 239
+Chapter 11: The Discrete-Time Fourier Transform for Discrete-Time Signals 241
+Getting to Know DTFT................................................................................. 242 Checking out DTFT properties......................................................... 243 Relating the continuous-time spectrum to the discrete-time spectrum ...................................................... 244 Getting even (or odd) symmetry properties for real signals ....... 245 Studying transform theorems and pairs......................................... 249 Working with Special Signals ..................................................................... 252 Getting mean-square convergence .................................................. 252 Finding Fourier transforms in the limit........................................... 255 LTI Systems in the Frequency Domain ..................................................... 258 Taking Advantage of the Convolution Theorem...................................... 260
+Chapter 12: The Discrete Fourier Transform and Fast Fourier Transform Algorithms 263
+Establishing the Discrete Fourier Transform........................................... 264 The DFT/IDFT Pair ....................................................................................... 265 DFT Theorems and Properties................................................................... 270 Carrying on from the DTFT............................................................... 271 Circular sequence shift ..................................................................... 272 Circular convolution.......................................................................... 274
+
+
+Signals & Systems For Dummies
+xiv
+Computing the DFT with the Fast Fourier Transform............................. 277 Decimation-in-time FFT algorithm ................................................... 277 Computing the inverse FFT .............................................................. 280 Application Example: Transform Domain Filtering................................. 280 Making circular convolution perform linear convolution ............ 281 Using overlap and add to continuously filter sequences ............. 281
+Part IV: Entering the s- and z-Domains....................... 283
+Chapter 13: The Laplace Transform for Continuous-Time 285
+Seeing Double: The Two-Sided Laplace Transform................................. 286 Finding direction with the ROC........................................................ 286 Locating poles and zeros .................................................................. 288 Checking stability for LTI systems with the ROC .......................... 289 Checking stability of causal systems through pole positions...... 290 Digging into the One-Sided Laplace Transform ....................................... 290 Checking Out LT Properties....................................................................... 292 Transform theorems.......................................................................... 292 Transform pairs ................................................................................. 296 Getting Back to the Time Domain.............................................................. 298 Dealing with distinct poles ............................................................... 299 Working double time with twin poles ............................................. 299 Completing inversion ........................................................................ 299 Using tables to complete the inverse Laplace transform............. 300 Working with the System Function ........................................................... 302 Managing nonzero initial conditions............................................... 303 Checking the frequency response with pole-zero location .......... 304
+Chapter 14: The z-Transform for Discrete-Time Signals 307
+The Two-Sided z-Transform ....................................................................... 308 The Region of Convergence ....................................................................... 309 The significance of the ROC ............................................................. 309 Plotting poles and zeros ................................................................... 311 The ROC and stability for LTI systems ........................................... 311 Finite length sequences .................................................................... 313 Returning to the Time Domain................................................................... 315 Working with distinct poles.............................................................. 316 Managing twin poles.......................................................................... 316 Performing inversion......................................................................... 317 Using the table-lookup approach..................................................... 317 Surveying z-Transform Properties ............................................................ 320 Transform theorems.......................................................................... 321 Transform pairs ................................................................................. 322 Leveraging the System Function................................................................ 323 Applying the convolution theorem.................................................. 324 Finding the frequency response with pole-zero geometry........... 325
+
+
+xv
+Table of Contents
+Chapter 15: Putting It All Together: Analysis and Modeling Across Domains 327
+Relating Domains......................................................................................... 328 Using PyLab for LCC Differential and Difference Equations .................. 329 Continuous time................................................................................. 330 Discrete time ...................................................................................... 332 Mashing Domains in Real-World Cases..................................................... 334 Problem 1: Analog filter design with a twist................................... 334 Problem 2: Solving the DAC ZOH droop problem in the z-domain ............................................................... 340
+Part V: The Part of Tens ............................................ 343
+Chapter 16: More Than Ten Common Mistakes to Avoid When Solving Problems 345
+Miscalculating the Folding Frequency ...................................................... 345 Getting Confused about Causality ............................................................. 346 Plotting Errors in Sinusoid Amplitude Spectra........................................ 346 Missing Your Arctan Angle......................................................................... 347 Being Unfamiliar with Calculator Functions ............................................ 347 Foregoing the Return to LCCDE................................................................. 348 Ignoring the Convolution Output Interval ................................................ 348 Forgetting to Reduce the Numerator Order before Partial Fractions ..... 348 Forgetting about Poles and Zeros from H(z) ........................................... 349 Missing Time Delay Theorems................................................................... 349 Disregarding the Action of the Unit Step in Convolution ....................... 349
+Chapter 17: Ten Properties You Never Want to Forget 351
+LTI System Stability..................................................................................... 351 Convolving Rectangles................................................................................ 351 The Convolution Theorem ......................................................................... 352 Frequency Response Magnitude ............................................................... 352 Convolution with Impulse Functions ........................................................ 352 Spectrum at DC ............................................................................................ 353 Frequency Samples of N-point DFT .......................................................... 353 Integrator and Accumulator Unstable ...................................................... 353 The Spectrum of a Rectangular Pulse ....................................................... 354 Odd Half-Wave Symmetry and Fourier Series Harmonics...................... 354
+Index ....................................................................... 355
+
+
+Signals & Systems For Dummies
+xvi
+
+
+Introduction
+S
+ignals and systems is one of the toughest classes you’ll take as an engineering student. But struggling to figure out this material doesn’t necessarily mean you need to sprout early-onset gray hairs and resign yourself to frown lines in your college years. And you definitely don’t want to give up on engineering over this stuff because becoming an engineer is, in my opinion, one of the best career choices you can make. See, you’re no dummy!
+This book can help you make sense of the fundamental concepts of signals and systems that may be giving you some static — or even frying your brain. Even better, you can apply the tips and tricks I provide in this book to the courses you’ll take down the line — and right into the real world of computer and electrical engineering!
+About This Book
+Like all other For Dummies books, Signals & Systems For Dummies isn’t a tutorial. It’s a reference book that you can use as you need it. You don’t need to read each chapter cover to cover (but you may find all the material utterly mesmerizing). You can jump right to the topics or concepts that are giving you trouble, get the help you need, and be on your way with helpful insight to real-world examples of electrical concepts that may be tough to imagine in your textbook of equations.
+Conventions Used in This Book
+I use the following conventions throughout the text to make things consistent and easy to follow:
+✓ New terms appear in italic and are closely followed by an easy-tounderstand definition. Variables also appear in italic.
+✓ Bold highlights keywords in bulleted lists and the action parts of numbered steps.
+✓ Lowercase variables indicate signals that change with time, and uppercase variables indicate signals that are constant. For example, v(t) and i(t) denote voltage and current signals that change with time. If, however, V and I are capitalized, these signals don’t vary in time.
+
+
+2 Signals & Systems For Dummies
+What You’re Not to Read
+Although I’m sure you want to read every word of this book, I realize you have other reading material to get through. When you’re short on time and need to just get through the basics, you can skip the sidebars (the shaded boxes sprinkled throughout the book) and paragraphs flagged with a Technical Stuff icon.
+Foolish Assumptions
+I know you’re a unique kind of brilliant and have one-of-a-kind skills and attributes, but as I wrote this book, I had to make some assumptions about my readers. Here’s what I assume about you:
+✓ You’re currently taking an introductory signals and systems course as part of your computer or electrical engineering major, and you need help with certain concepts and techniques. Or you’re planning to take a signals and systems course next semester, and you want to prepare by checking out some supplementary material.
+✓ You have a solid handle on algebra and calculus.
+✓ You’ve taken an introductory physics class, which exposed you to the concepts of voltage, current, and power in circuits.
+✓ You’re familiar with linear differential equations with constant coefficients.
+How This Book Is Organized
+The study of signals and systems integrates a handful of specific topics from your math and physics courses, and it introduces new techniques to design and manage electrical systems. To help you grasp the core concepts of this electrifying field (sorry, I couldn’t resist) in manageable bites, I’ve split the book into several parts, each consisting of chapters on related topics. Chapters are laid out in an alternation of continuous- and discrete-time topics, starting with the time domain, moving to the frequency domain, and then covering the s- and z-domains.
+Additional content, including case studies, is available online at www. dummies.com/extras/signalsandsystems.
+
+
+3
+Introduction
+Part I: Getting Started with Signals and Systems
+This part gives you the signals and systems lingo and an overview of the basic concepts and techniques necessary for tackling your signals and systems course. If you’re already familiar with the fundamentals of how signals and systems operate in the continuous- and discrete-time domains, you can use this part as a refresher.
+Part II: Exploring the Time Domain
+The focus of these chapters narrows to more closely examine the time domain of signals and systems. In Chapter 7, I introduce differential and difference equation system models, which are used to represent electronic circuits, the audio equalizer on your MP3 music player, filters that separate signals from one another, hybrid systems composed of electrical and mechanical components, and more. I also describe signal and system classifications and properties in these chapters.
+Part III: Picking Up the Frequency Domain
+The chapters in this part drill down on the frequency domain and the world of system design, particularly wireless systems. Bridging the gap between the continuous- and discrete-time worlds is sampling theory, which is covered in Chapter 10.
+Part IV: Entering the s- and z-Domains
+This part gets tougher because you’re dealing with the s- and z-domains a third domain system that engineers use to view the world. Poles and zeros rule here. Signal processing and control systems designers are fond of the sand z-domains because, for starters, they reduce the mathematics of passing a signal through a system to rather simple algebraic manipulation. From the poles and zeros, you can easily discern system stability and the impact they have on the frequency domain. Great stuff.
+
+
+4 Signals & Systems For Dummies
+Part V: The Part of Tens
+Here, get hip to more than ten common mistakes people make when solving problems for signals and systems. Also find a list of ten properties you never want to forget. You may want to print these lists and keep ’em within view.
+Icons Used in This Book
+To make this book easier to read and simpler to use, I include some icons to help you find key information.
+Anytime you see this icon, you know the information that follows is so important that it’s worth recalling after you close this book — even if you don’t remember anything else you read.
+This icon appears next to information that’s interesting but not essential. Don’t be afraid to skip these paragraphs.
+This bull’s-eye points out advice that can save you time when managing signals and systems.
+This icon tries to prevent you from making fatal mistakes in your analysis.
+This icon flags worked-through examples in the content so you can find the most practical stuff fast if you’re especially pressed for time.
+Where to Go from Here
+This book isn’t a novel — although it just may be as intriguing as one. You can start at the beginning and read through to the end, or you can jump in at any chapter to get the information you need on a specific topic. If you need
+
+
+5
+Introduction
+help with calculus and other math basics before dishing out the heartier fare of signals and systems, then pick through Chapter 2 for a quick review. If you just can’t wait another second to find out how the Fourier transform works with different types of signals, then by all means flip to Chapters 9 and 11 right away.
+If you’re not sure where to start, or you don’t know enough about signals and systems yet to even wonder about specific topics, no problem — that’s exactly what this book is for. I recommend starting with the chapters in Part I and moving forward from there if you really are a newbie. Then, keep on reading; you’ll be charged up with nitty-gritty details of signals and systems in no time.
+
+
+6 Signals & Systems For Dummies
+
+
+Part I
+Getting Started with Signals and Systems
+Visit www.dummies.com for valuable Dummies content online.
+
+
+In this part . . .
+✓ Find out why computer and electrical engineers need to understand signals and systems analysis.
+✓ See how signals and systems function in the worlds of continuous- and discrete-time.
+✓ Discover alternative domains used for modeling signals and systems.
+✓ Refresh your mathematical know-how and see how algebra, calculus, and trig apply to signals and systems work.
+✓ Explore the basic means for assessing the performance of technology-based solutions.
+
+
+Chapter 1
+Introducing Signals and Systems
+In This Chapter
+▶ Figuring out the math you need for signals and systems work
+▶ Determining the different types of signals and systems
+▶ Understanding signal classifications and domains
+▶ Checking out possible products with behavioral level modeling
+▶ Looking at real products as signals and systems
+▶ Using open-source computer tools to check your work
+W
+hich came first: the signal or the system? Before you answer, you may want to know that by system, I mean a structure or design that operates on signals. You live and breathe in a sea of signals, and systems harness signals and put them to work. So which came first, you think? It may not really matter, but I’m guessing — as I smooth out a long imaginary philosopher-type beard — that signals came first and then began passing through systems.
+But I digress. The study of signals and systems as portrayed in this book centers on the mathematical modeling of both signals and systems. Mathematical modeling allows an engineer to explore a variety of product design approaches without committing to costly prototype hardware and software development. After you tune your model to produce satisfactory results, you can implement your design as a prototype. And at some point, real signals (and sometimes math-based simulations) test the system design before full implementation.
+When studying signals and systems, it’s easy to get mired in mathematical details and lose sight of the big picture — the functional systems of your end result. So try to remember that, at its best, signals and systems is all about designing and working with products through applied math. Math is the means, not the star of the show.
+
+
+10 Part I: Getting Started with Signals and Systems
+Two broad classes of signals are those that are continuous functions of time t and those that are discrete functions of time index n. Throughout this book, I separate information on continuous- and discrete-time signals and systems. In this chapter, I introduce simple continuous and discrete signals and the corresponding systems. I also point out some of the distinguishing characteristics of signal types.
+Before getting started, I want to mention that signals as functions of time are how most people experience the real world of computer and electronic engineering, yet transforming signals and systems to other domains — specifically, the frequency, s-, and z-domains — and back again is quite beneficial in some situations. I touch on the transformation of signals and systems in this chapter and dig into the details in Parts III and IV.
+In this chapter, I also cover the important role of computer tools in signals and systems problem solving and tell you how to use a few specific opensource programs. If you want to set up these freely available tools on your computer, you can follow along when I describe specific functions that enable you to check your work or work more efficiently — after you get a handle on core concepts and techniques.
+Applying Mathematics
+Anyone aspiring to a working knowledge of signals and systems needs a solid background in math, including these specific concepts:
+✓ Calculus of one variable
+✓ Integration and differentiation
+✓ Differential equations
+To actually implement designs that center on signals and systems, you also need a background in these subjects:
+✓ Electrical/electronic circuits
+✓ Computer programming fundamentals, such as C/C++ and Java
+✓ Analysis, design, and development software tools
+✓ Programmable devices
+Many signals and systems designers rely on modeling tools that use a matrix/ vector language or class library for numerics and a graphics visualization capability to allow for rapid prototyping. I use numerical Python for examples in this book; other languages with similar syntax include MATLAB and NI LabVIEW MathScript.
+
+
+11
+Chapter 1: Introducing Signals and Systems
+With so many electrical engineering solutions being software-based today versus a matter of analog circuitry (see nearby sidebar “Finding perspective on analog processing”) — a system designer can also be the implementer. This leap requires only simulation code to be transformed into the implementation language, such as Verilog or C/C++.
+Working pencil-and-paper solutions for signals and systems coursework requires a good scientific calculator. I recommend a calculator that supports complex arithmetic operations, using the minimum number of keystrokes. At minimum, your calculator needs to have trig, log, and exponential functions for signals and systems work.
+Getting Mixed Signals . . . and Systems
+Signals come in two flavors: continuous and discrete. It’s the same story with systems. In other words, some signals — and some systems — are active all the time; others aren’t. In this section, I describe continuous and discrete signals along with the corresponding systems. I also tell you how to classify certain signals and systems based on their most basic properties.
+Going on and on and on
+Continuous-time signals and systems never take a break. When a circuit is wired up, a signal is there for the taking, and the system begins working and doesn’t stop. Keep in mind that I use the term signal here loosely; any one specific signal may come and go, but a signal is always present at each and every time instant imaginable in a continuous-time system.
+Finding perspective on analog processing
+Once upon a time, the implementation path for signals and systems was purely analog circuit design. As technology has advanced, solutions based on digital signal processing (discrete-time signals and systems) through powerful low-cost and low-power digital hardware has become the mainstay. Digital hardware solutions are programmable and can be reconfigured through software updates after products ship.
+The signals you’re likely to work with in the real world are analog in nature, but you’ll almost always process them digitally. Knowing programming languages is important in this environment. Yet analog signal processing is alive and well — it’s vital to your working knowledge of signals and systems — but the overall role of analog processing in current design is less formidable than it’s been in the past.
+
+
+12 Part I: Getting Started with Signals and Systems
+Continuous-time signals
+Continuous signals function according to time t. A sinusoidal function of time is one of the most basic signals. The mathematical model for a sinusoid signal is , where A is the signal amplitude, is the signal frequency, and is the signal phase shift. The independent variable is time t. If you’re curious about the first peak of x (t) occuring at 3/16, notice that this occurs when the argument of the cosine is 0 — the is, or .
+I cover this signal in detail in Chapter 3, but to help you get acquainted, check out the plot of a sinusoid signal in Figure 1-1.
+Figure 1-1: The plot of a sinusoidal signal.
+The amplitude of this signal is 3, the frequency is 2 Hz, and the phase shift is rad.
+Continuous-time systems
+Systems operate on signals. In mathematical terms, a system is a function or operator, , that maps the input signal to output signal .
+An example of a continuous-time system is the electronic circuits in an amplifier, which has gain 5 and level shift 2: .
+See a block diagram representation of this simple system in Figure 1-2.
+Figure 1-2: A simple continuoustime system model.
+Building an amplifier that corresponds to this mathematical model is another matter entirely. You can create a simple electronic circuit, but it will have limitations that the math model doesn’t have. It’s up to you, as an electronic
+
+
+13
+Chapter 1: Introducing Signals and Systems
+engineer, to refine the model to accurately reflect the level of detail needed to assess overall performance of a design candidate.
+Working in spurts: Discrete-time signals and systems
+Discrete-time signals and systems march along to the tick of a clock. Mathematical modeling of discrete-time signals and systems shows that activity occurs with whole number (integer) spacing, but signals in the real world operate according to periods of time, or the update rate also known as the sampling rate. Discrete-time signals, which can also be viewed as sequences, only exist at the ticks, and the systems that process these signals are, mathematically speaking, resting in the periods between signal activity.
+Systems take inputs and produce outputs with the same clock tick, generally speaking. Depending on the nature of the digital hardware and the complexity of the system, calculations performed by the system continue — between clock ticks — to ensure that the next system output is available at the next tick when a new signal sample arrives at the input.
+Discrete-time signals
+Discrete-time signals are a function of time index n. Discrete-time signal , unlike continuous-time signal , takes on values only at integer number values of the independent variable n. This means that the signal is active only at specific periods of time. Discrete-time signals can be stored in computer memory because the number of signal values that need to be stored to represent a finite time interval is finite.
+The following simple signal, a pulse sequence, is shown in Figure 1-3 as a stem plot — a plot where you place vertical lines, starting at 0 to the sample value, along with a marker such as a filled circle. The stem plot is also known as a lollipop plot — seriously.
+Figure 1-3: A simple discretetime signal.
+
+
+14 Part I: Getting Started with Signals and Systems
+The stem plot shows only the discrete values of the sequence. Find out more about discrete-time signals in Chapter 4.
+Discrete-time systems
+A discrete-time system, like its continuous-time counterpart, is a function, , that maps the input to the output . An example of a discrete-time system is the two-tap filter:
+The term tap denotes that output at time instant n is formed from two time instants of the input, n and n – 1. Check out a block diagram of a two-tap filter system in Figure 1-4.
+Figure 1-4: A simple discretetime system model.
+In words, this system scales the present input by 3/4 and adds it to the past value of the input scaled by 1/4. The notion of the past input comes about because is lagging one sample value behind . The term filter describes the output as an averaging of the present input and the previous input. Averaging is a form of filtering.
+Classifying Signals
+Signals, both continuous and discrete, have attributes that allow them to be classified into different types. Three broad categories of signal classification are periodic, aperiodic, and random. In this section, I briefly describe these classifications (find details in Chapters 3 and 4).
+Periodic
+Signals that repeat over and over are said to be periodic. In mathematical terms, a signal is periodic if
+
+
+15
+Chapter 1: Introducing Signals and Systems
+The smallest T or N for which the equality holds is the signal period. The sinusoidal signal of Figure 1-1 is periodic because of the property of cosine. The signal of Figure 1-1 has period 0.5 seconds (s), which turns out to be the reciprocal of the frequency Hz. The square wave signal of Figure 1-5a is another example of a periodic signal.
+Figure 1-5: Examples of signal classifications: periodic (square wave) (a), aperiodic (rectangular pulse) (b), and random (noise) (c).
+Aperiodic
+Signals that are deterministic (completely determined functions of time) but not periodic are known as aperiodic. Point of view matters. If a signal occurs infrequently, you may view it as aperiodic. The rectangular pulse of duration shown in Figure 1-5b is an aperiodic signal.
+Random
+A signal is random if one or more signal attributes takes on unpredictable values in a probability sense (you love statistics, right?).
+
+
+16 Part I: Getting Started with Signals and Systems
+The full mathematical description of random signals is outside the scope of this book, but here are two good examples of a random signal:
+✓ The noise you hear when you’re between stations on an FM radio. See a waveform representation of this noise in Figure 1-5c.
+✓ Speech: If you try to capture audio samples on a computer of someone speaking the word hello over and over, you’ll find that each capture looks a little different.
+Engineers working with communication receivers are concerned with random signals, especially noise.
+Signals and Systems in Other Domains
+Most of the signals you encounter on a daily basis — in computers, in wireless devices, or through a face-to-face conversation — reside in the time domain. They’re functions of independent variable t or n. But sometimes when you’re working with continuous-time signals, you may need to transform away from the time domain (t) to either the frequency domain ( ) or the s-domain (s). Similarly, for discrete-time signals, you may need to transform from the discrete-time domain (n) to the frequency domain ( ) or the z-domain (z).
+Systems, continuous and discrete, can also be transformed to the frequency and s- and z-domains, respectively. Signals can, in fact, be passed through systems in these alternative domains. When a signal is passed through a system in the frequency domain, for example, the frequency domain output signal can later be returned to the time domain and appear just as if the timedomain version of the system operated on the signal in the time domain.
+This section briefly explores the world of signals and systems in the frequency, s-, and z-domains. Find more on these alternative domains in Chapters 13 and 14.
+Viewing signals in the frequency domain
+The time domain is where signals naturally live and where human interaction with signals occurs, but the full information for a signal isn’t always visible in that space. Consider the sum of a two-sinusoids signal (as depicted in Figure 1-6):
+
+
+17
+Chapter 1: Introducing Signals and Systems
+Figure 1-6: The frequency domain view for a sum of a twosinusoids signal.
+The top waveform plot, denoted s1, is a single sinusoid at frequency f1 and
+peak amplitude A1. The waveform repeats every period T1 = 1/f1. The second
+waveform plot, denoted s2, is a single sinusoid at frequency f2 > f1 and peak
+amplitude A2 < A1. The sum signal, s1 + s2, in the time domain is a squiggly line
+(third waveform plot), but the amplitudes and frequencies (periods) of the sinusoids aren’t clear here as they are in the first two plots. The frequency spectrum (bottom plot) reveals that is composed of just two sinusoids, with both the frequencies and amplitudes discernible.
+Think about tuning in a radio station. Stations are located at different center frequencies. The stations don’t interfere with one another because they’re separated from each other in the frequency domain. In the frequency spectrum plot at the bottom of Figure 1-6, imagine that f1 and f2 are the signals
+from two radio stations, viewed in the frequency domain. You can design a receiving system to filter s1 from s1 + s2. The filter is designed to pass s1 and
+block s2. (I cover filters in Chapter 9.)
+Use the Fourier transform to move away from the time domain and into the frequency domain. To get back to the time domain, use the inverse Fourier transform. (Find out more about these transforms in Chapter 9.)
+
+
+18 Part I: Getting Started with Signals and Systems
+Traveling to the s- or z-domain and back
+From the time domain to the frequency domain, only one independent variable, , exists. When a signal is transformed to the s-domain, it becomes a function of a complex variable . The two variables (real and imaginary parts) describe a location in the s-plane.
+In addition to visualization properties, the s-domain reduces differential equation solving to algebraic manipulation. For discrete-time signals, the z-transform accomplishes the same thing, except differential equations are replaced by difference equations. Did you think going to the z-domain meant taking a nap? Details on difference equations begin in Chapter 7.
+Testing Product Concepts with Behavioral Level Modeling
+Computer and electrical engineers provide society with a vast array of products — ranging from cellphones and high-definition televisions to powerful computers with high resolution displays that are small and lightweight. The mystery of how brilliant people come up with world-changing ideas may never be solved, but after an idea is out there, engineers work through a process that allows them to test, or model, potential solutions to find out whether the idea is likely to work in the real world. For products that rely on signal processing, engineers use signals and system modeling and analysis to reveal what’s possible.
+When you’re trying to quickly prove a solution approach, you’ll often turn to behavioral level modeling of certain elements of the overall system to avoid low-level implementation details. For example, a subsystem design may require knowledge of a signal parameter (such as amplitude or frequency) to function. At first, you may assume that the parameter is well known. Later, you add low-level details to estimate (not perfectly) the parameter. As your confidence and understanding grows, you represent the low-level details in the model and actual implementation becomes possible.
+Behavioral level modeling also applies when you need to model physical environments that lie outside a design but are needed to evaluate performance under realistic scenarios.
+
+
+19
+Chapter 1: Introducing Signals and Systems
+In this section, I describe the role of abstraction as a means to generate preliminary concepts and then work those concepts into a top-level design. The top-level design becomes a detailed plan as you work down to implementation specifics. Mathematical modeling is a thread running through the entire process, so you come to rely on it.
+Staying abstract to generate ideas
+Behavioral level modeling isn’t void of hardware constraints and realities, but it requires a certain level of abstraction to allow preliminary concept solutions to materialize quickly. Behavioral level models depend on applied mathematics.
+In other words, computer and electronic engineers don’t frequently handle actual hardware and devices used for an implementation. The model of the hardware is what’s important at this point. The engineer’s job is to conceptualize systems and subsystems through a framework of mathematical concepts, and abstraction provides great creative freedom to explore the possibilities.
+Suppose you seek a new design for an existing system to improve performance. You hope to make such improvements with new device technology. You don’t want to get bogged down in all the details of how to interface this device into the current design, so you move up in abstraction with a model to quickly find out how much you can improve performance with a new design. If adequate improvement potential doesn’t exist, then you settle down and investigate other options. Rinse, lather, and repeat.
+Keep in mind that improved performance isn’t always the primary objective of signals and systems modeling. Sometimes, a design is driven by cost, availability of materials, manufacturing processes, and time to market, or some other consideration.
+Working from the top down
+A design that relies on signals and systems starts from a top-level view and works down to the nitty-gritty details of final implementation. Analysis and simulation performed at the top level depends on behavioral level modeling. The model is ultimately broken into subsystems for testing and refinement, and then the system comes together again before implementation.
+
+
+20 Part I: Getting Started with Signals and Systems
+Typically, your task as an electronic engineer is to create some new or enhanced functionality for a computer- or electrical-based product. For example, you may need to support a new radio interface due to recent standard updates. At first, the changes may seem simple and straightforward, but as you dig into the work, you may begin to see that the changes require significant adjustments in signal processing algorithms. This means that the new radio interface will require a few totally new designs, so you need to model and simulate various implementation approaches to find out what’s likely to work best.
+Relying on mathematics
+Many people write off signals and systems as a pile of confusing math, and they run for the hills. True, the math can be intimidating at first, but the rewards of seeing your finely crafted mathematical model lead the way to a shipping product is worth the extra effort — at least I think so. In the end, the math is on your side. It’s the only way to model concepts that function properly in the real world.
+My go-to approach when a problem seems unsolvable: Take it slow and steady. If a solution isn’t clear after you think about the problem for a while, walk away and come back to it later. Practice and experience with various problem-solving techniques and options help, so try to work as many types of problems as you can — especially in the areas you feel the most discomfort. Eventually, a solution reveals itself.
+When possible, verify your solutions by using computer analysis and simulation tools. In this book, I use Python with the numerical support and visualization capabilities of PyLab (NumPy, SciPy, matplotlib) and the IPython environment to perform number-crunching analysis and simulations. For problems involving more symbolic mathematics, I use the computer algebra system (CAS) provided by Maxima.
+Exploring Familiar Signals and Systems
+I’m guessing you have some level of familiarity with consumer electronics, such as MP3 music players, smartphones, and tablet devices, and realize that these products rely on signals and systems. But you may take for granted the cruise control in your car. In this section, I point out the signals and systems framework in familiar devices at the block diagram level — a system diagram
+
+
+21
+Chapter 1: Introducing Signals and Systems
+that identifies the significant components inside rectangular boxes, interconnected with arrows that show the direction of signal flow. The block diagram expresses the overall concept of a system without intimate implementation details.
+MP3 music player
+Signals and systems are operating in all the major peripherals of the music player — even in the processor. In reality, signals are in every part of the system, but I exclude pure digital signals in this example, so I don’t address memory. The processor runs an operating system (OS); under that OS, tasks perform digital signal processing (DSP) algorithms for streaming audio and image data. Note that this book is focused on one-dimensional signals only.
+Find a top-level block diagram of an MP3 device in Figure 1-7. All the peripheral blocks (the blocks that sit outside the processor block) contain a combination of continuous- and discrete-time systems. You stream digital music in real time from memory in a compressed format. The processor has to decompress the audio stream into signal sample values (a discrete-time signal) to send to the audio codec. The audio codec contains a digital-to-analog converter (DAC) that converts the discrete-time signal to a continuous-time signal.
+The Wi-Fi and Bluetooth radios (blocks with antennas) interface to the processor with digital data but interface to the antenna by using a continuoustime signal at a frequency of 2.4 GHz. The sensors’ block acquires analog signals from the environment, temperature, light level, and acceleration in three dimensions.
+Figure 1-7: MP3 music player block diagram.
+
+
+22 Part I: Getting Started with Signals and Systems
+Smartphone
+The structure of a smartphone is similar to an MP3 music player, but a smartphone also has a global positioning receiver (GPS) and multiband radio blocks that send and receive continuous-time signals from base stations (antenna sites) of a cellular network. The GPS receiver acquires signals from multiple satellites to get your latitude and longitude. The primary purpose of the GPS in most smartphones is to provide location information when placing an emergency call (E911).
+Check out a block diagram of a smartphone in Figure 1-8. Four antennas are shown, but only a single multiband antenna is employed in most models, so only a single antenna structure is really needed.
+Figure 1-8: Smartphone block diagram.
+The multiband cellular radio subsystem is thick with signals and systems. The multiband digital communications transmitter (tx) and receiver (rx) allows the smartphone to be backward compatible with older technologies as well as with the newest high-speed wireless data technologies. This transmitter and receiver enable the product to operate throughout the world. A smartphone is overflowing with signals and systems examples!
+Automobile cruise control
+I think all new automobiles come equipped with a cruise control system now. This is good news because this feature may keep you from getting a speeding ticket when you’re driving long distances on the interstate. It’s also great for getting better gas mileage. But I’m no sales guy for cruise control. I just think this product is interesting from a signals and systems standpoint.
+
+
+23
+Chapter 1: Introducing Signals and Systems
+Figure 1-9 shows a block diagram of a cruise control system. Cruise control involves both electrical and mechanical signals and systems. The controller is electrical and the plant, the system being controlled, is the car. Wind and hills are disturbance signals, which thwart the normal operation of the control system. The controller puts out a compensating signal to the throttle to overcome wind resistance (an opposing force) and the force of gravity when going up and down hills. The error signal that follows the summing block is driven to a very small value by the action of the feedback loop. This means that the output velocity tracks the reference velocity. This is exactly what you want. For a more detailed look at cruise control, check out the case studies at www.dummies.com/extras/signalsandsystems.
+Figure 1-9: Block diagram of an automobile cruise control system.
+Using Computer Tools for Modeling and Simulation
+Today’s technology-based solutions are rarely built without the use of some form of computer tool. Signals and systems research and product development is no exception. Throughout this book, I show you how to solve problems by hand calculation and how to check your work with computer tools. Hand calculation is vital for building concepts. Computer tools help ensure that you don’t make mistakes. And why wouldn’t you use the best tools available for your work?
+A variety of commercial and open-source tools are available for signals and systems problem solving. Two broad categories are computer algebra system (CAS) programs, such as Mathematica, Maple, and Maxima, and those that excel at vector/matrix problem solving, such as MATLAB, NI LabVIEW MathScript, Octave, and Python. Both types of computer programs offer function libraries that are tailored to the needs of the signals and systems analysis and simulation.
+
+
+24 Part I: Getting Started with Signals and Systems
+The examples in this book feature two open-source tools:
+✓ Scientific Python via PyLab and the shell IPython
+Python becomes scientific Python with the inclusion of NumPy and SciPy for vector/matrix number crunching and matplotlib for graphics.
+✓ CAS Maxima via wxMaxima
+I’ve chosen open-source tools because I want to provide an easy on-ramp for users everywhere. Both Mac and Windows OS computers can run these software products via free downloads. Specifically for this book, I wrote the code module ssd.py, which provides additional signals and systems functions. After you import this module into your IPython session, you can run all the examples in this book. I prefer to use the QT console version of IPython (see www.ipython.org). Similarly for wxMaxima, the notebook ssd.wxm contains all the example code from this book, organized by chapter.
+Getting the software
+Python and IPython (including NumPy, SciPy, and matplotlib) from Enthought Python Distribution (EPD) is a free download for the 32-bit version (www.
+enthought.com/products/epd_free.php). Python(x,y) is also very good, especially under Windows (http://code.google.com/p/pythonxy). If
+you’re running Linux, in particular Ubuntu Linux, the Ubuntu Software Center is a good starting place. If you’re an experienced open-source user, you can do a custom install as opposed to the monolithic distributions. If you’re looking for a full integrated development environment (IDE) for debugging Python, I suggest the open-source IDE Eclipse (www.eclipse.org) with the plug-in PyDev (http://pydev.org). Eclipse is supported on Mac, Windows, and Linux. I developed the module ssd.py by using this setup.
+Find wxMaxima for Windows and Mac at http://andrejv.github.com/ wxmaxima. Under Ubuntu Linux, you can find wxMaxima in the Ubuntu Software Center.
+To get files specific to this book go to www.dummies.com/extras/ signalsandsystems for the Python code module ssd.py and the Maxima notebook ssd.wxm along with some tutorial screencasts and documents.
+
+
+25
+Chapter 1: Introducing Signals and Systems
+Exploring the interfaces
+Take a quick tour of the interfaces of these computer programs when you get them installed. I provide a peek of how the program looks on the Mac in Figures 1-10, 1-11, and 1-12. The appearance and functionality for Windows is virtually the same.
+Figure 1-10: The wxMaxima notebook interface to Maxima.
+You can send Maxima plots to a file in a variety of formats or display them directly in the notebook, as shown in Figure 1-11.
+Figure 1-11: The IPython QT console window.
+
+
+26 Part I: Getting Started with Signals and Systems
+You can write and debug functions right from the console window, as shown in Figure 1-12.
+Figure 1-12: matplotlib plot window resulting from a call to plot (x,y) in IPython.
+You can manipulate plots by using the controls you see at the bottom of the figure window. Plot cursors are also available. You can save plots from the command line or from the figure window. Many of the plots found in this book were created with matplotlib.
+Seeing the Big Picture
+Figure 1-13 illustrates the content organization of this book as an unfolding of core topics, starting from the time domain and moving to the frequency domain before exploring the s- and z-domains. Continuous (left side) and discrete (right side) signals and systems topics parallel each other every step of the way — with some continuous- and discrete-time topics shared (center) within a few chapters. The last four chapters, which follow the z-domain chapter, emphasize applications, including signal processing, wireless communications, and control systems.
+I start with the time domain because this is where signals originate and where systems operate on signals (with the exception of transform domain processing, which is covered in Chapter 12). The frequency domain augments a base knowledge of both signals and systems and is important to grasping sampling theory, which leads to the processing of continuous-time signals in the discretetime domain. The s- and z-domain are the last of the core topics, but by no means are they any less important than the topics that come before them. The s- and z-domains are particularly powerful when working with linear time-invariant systems described by differential and difference equations.
+
+
+27
+Chapter 1: Introducing Signals and Systems
+After covering the core topics, you can appreciate the chapter that focuses on how to work across domains (Chapter 15). Get a taste of how signals and systems fit into the real world of electrical engineering by reading the case studies at www.dummies.com/extras/signalsandsystems. Take a look at the application examples to get inspired when you’re struggling to see the forest for the trees of the dense study of signals and systems.
+Figure 1-13: Signals and systems topic flow.
+
+
+28 Part I: Getting Started with Signals and Systems
+
+
+Chapter 2
+Brushing Up on Math
+In This Chapter
+▶ Reviewing basic algebra
+▶ Finding the love for trig
+▶ Calculating complex arithmetic
+▶ Recalling calculus
+▶ Rooting for polynomials
+C
+an you believe it? A mathematics review chapter in a signals and systems book! Well, yes, you saw it coming. Mathematics plays a starring role in the study of signals and systems, which is basically a discipline of applied math.
+In this chapter, I cover the mathematical concepts that you need for studying signals and systems, including specific aspects of algebra, trigonometry, complex arithmetic, calculus, and polynomial roots. So grab what you need from this chapter, and come back as necessary when you’re trying to decipher the core concepts of signals and systems. If you need a more rigorous review of mathematical tools than what I provide here, check out Calculus For Dummies (Wiley) and other For Dummies resources available at www.dummies.com.
+Revealing Unknowns with Algebra
+Algebraic manipulation is at the core of many engineering calculations, especially in the study of signals and systems. After all, when three variables are at play, you can solve for any one by fixing the other two, using algebra. This is helpful because in design problems, you often need to meet some requirement but have one or more design values to choose. For the case of two design values, just pick a value for one and satisfy the requirement by solving for the remaining design value.
+
+
+30 Part I: Getting Started with Signals and Systems
+In the following sections, I review fundamental algebra concepts for two equations and two unknowns. I also cover partial fraction expansion (PFE), which is an algebraic technique for splitting up a ratio of polynomials into a sum of fractions, each having a denominator containing a single or repeated root.
+Solving for two variables
+To restart your algebraic manipulation engine, consider finding the values for two variables given two equations.
+Example 2-1: A linear chirp signal involves changing the pitch, or frequency, of a single tone signal linearly with time. The instantaneous signal frequency is fi(t) = 2μt + f0 (Hz), where μ and f0 are constants. The units of fi(t) are hertz
+(Hz), or cycles per second. A design task is to produce a linear chirp signal from 200 Hz to 3,500 Hz over the time interval 0 ≤ t ≤ 10 s.
+Notice that this problem requires you to solve for two unknowns. Here’s how to find the solutions:
+1. Create two equations by using the start and stop time for the chirp as boundary conditions:
+2. In the first equation, note that f0 = 200 Hz. In the second equation,
+3,500 = 20μ + f0 = 20μ + 200.
+3. Solve for μ:
+Checking solutions with computer tools
+A computer algebra system (CAS) can help you solve problems and check your work. One CAS option is the open-source software tool Maxima (see Chapter 1 for details).
+Note: I use the GUI environment wxMaxima throughout this book for computer algebra-oriented calculations — problems that involve symbols and numbers.
+
+
+31
+Chapter 2: Brushing Up on Math
+Create this command line solution with wxMaxima:
+In wxMaxima, each cell is an individual calculation. The first line of a cell is the input you type into Maxima; the second line is the output you get after using the key stroke Shift + Enter.
+In solving for and , the input consists of two equations entered as a list followed by the variables to be solved for, which are also a list. A list is simply quantities placed between brackets and separated by commas, such as [mu, f0].
+Exploring partial fraction expansion
+Partial fraction expansion (PFE) techniques are important to the inverse Laplace transform (covered in Chapter 13) and the inverse z-transform (described in Chapter 14). These techniques make it possible to use a set of transform tables instead of contour integration from complex variable theory. With PFE, you split up a ratio of polynomials into a sum of fractions, each having a denominator containing a single or repeated root.
+Consider the Nth-order polynomial:
+And the Mth-order polynomial:
+In the case of M < N, N(s)/D(s) is a proper rational function, meaning the degree of the numerator is less than the degree of the denominator. If you assume that pi, i = 1, . . . , N are distinct roots of D(s) — that is, no roots are
+repeated — then the PFE of N(s)/D(s) is
+In the general case, again M < N, each of r roots of D(s) may have multiplicity , such that .
+
+
+32 Part I: Getting Started with Signals and Systems
+The PFE now takes the more complex form
+When M ≥ N, you need to use long division to reduce the order of N(s) to be less than D(s) and then continue with the expansion. However, not taking this step to reduce the order of N(s) doesn’t prevent you from getting Ai values.
+But the values are incorrect, and you have no way of knowing this unless you recombine your expansion terms over a common denominator to see whether you return to the starting point.
+With polynomial long division, your goal is
+where is proper rational. Here’s how polynomial long division works:
+Carrying out long division requires two steps. One is a setup, and the other is the long division itself, which repeats M – N + 1 times. Note that M – N long division brings numerator/denominator order parity, so you need to do one additional long division to make the numerator order one less than the denominator.
+1. For the setup, multiply out the denominator into one big polynomial; for example, s(s – 2) = s2 – 2s.
+2. Perform long division one time because :
+3. Notice that the numerator order is reduced to M = 1 because the remainder is and , making
+4. The roots of D(s) are 0 and 2, so the PFE of is
+
+
+33
+Chapter 2: Brushing Up on Math
+With the conversion from an improper rational function to a proper rational function now complete, you can move on to finding the expansion coefficients.
+For the case of distinct roots, the formula for the coefficients is
+When working with repeated roots, the formula is
+Example 2-2: To find the expansion coefficients for , follow this process:
+1. Verify that the function is proper rational.
+Because 2 < 3, it’s proper rational.
+2. Expand the formula:
+3. One by one, solve for the coefficients:
+4. Put the numerical coefficients in place to get the PFE representation:
+5. Check your calculations with the Maxima function partfrac():
+Note: Maxima chooses the expansion coefficient order, so you need to verify that the same terms are present in both solutions, independent of the order you chose for the hand calculation.
+
+
+34 Part I: Getting Started with Signals and Systems
+Example 2-3: Consider a partial fraction expansion for D(s) having one distinct root and a single root repeated, for a total of three roots. The function is proper rational (M = 1, N = 3), so use the repeated roots formulation of the PFE:
+Because the first root is distinct, I made the connection that in the coefficient formulas.
+Here’s how to determine the expansion coefficients:
+1. Find the coefficients A1 and A22 by using the PFE coefficient formulas:
+2. Find the coefficient A21.
+The coefficient formula in this case involves taking a derivative of a ratio of polynomials. You can do this all right, but it’s tedious and error prone. For this type of problem, I prefer to find the coefficient by writing one equation to solve for the one unknown, A21 in this case. Choose a
+value for s where denominator terms are never 0. By choosing s = 1, you can work the algebra to solve for A21:
+3. Put the numerical coefficients in place to establish the PFE representation:
+4. Check your calculations with the Maxima function partfrac():
+
+
+35
+Chapter 2: Brushing Up on Math
+I explore the SciPy package signal and its functions residue and residuez in Chapters 15 and 14, respectively, as tools to numerically find the expansion coefficients.
+Making Nice Signal Models with Trig Functions
+When someone says the word trigonometry, what comes to mind? That ulcer you had freshman year, maybe? Okay, perhaps trig isn’t an exciting subject for you. Nevertheless, signal modeling and signal analysis using trig functions is a fact of life in electrical engineering.
+That’s right; trigonometry is part of signal modeling (see Chapters 3 and 4), and trig functions are the basis of line spectra and Fourier series (Chapter 8), the Fourier transform (Chapter 9), and the discrete Fourier transform (Chapter 11). I know, there’s never a dull moment here; trig is the gig.
+I explain how trig functions in complex arithmetic in the next section; but before we get into all of that, take a look at some of the most beloved trig identities in Table 2-1. Come back here when you need an identity or two as you work through trig functions.
+Table 2-1 Useful Trig Identities
+sinu = cos(u – π/2) cosu = sin(u + π/2)
+cos(u ± 2πk) = cosu, k = ± 1, ± 2, . . . cos(–u) = cosu
+sin(–u) = –sin(u) sin2u + cos2u = 1
+cos2u – sin2u = cos2u 2sinucosu = sin2u
+sin(u ± v) = sinucosv ± cosusinv
+
+
+36 Part I: Getting Started with Signals and Systems
+These signal model examples can get you started with some common trig functions.
+Example 2-4: A single continuous-time sinusoid takes the form x(t) = Acos(2πf0t
++ θ), –∞ < t < ∞, where A is the amplitude, f0 is the frequency in hertz, and θ is
+the phase in radians. If, say, θ = –π/2, then using the identity sinu = cos(u – π/2), you can write x(t) = Asin(2πf0t).
+Example 2-5: Pressing a key on a telephone touchpad generates two tones. If you press 5, the row and column sinusoid frequencies are 770 Hz and 1,336 Hz, respectively. The signal you generate and hear is in this form:
+x(t) = A{cos[2π(770)t] + cos[2π(1,336)t]}, Tstart ≤ t ≤ Tstop
+Go ahead and press a key on a telephone right now and see whether you can discern two tones being played. This reveals a practical application of trig; it’s at work when you make a simple phone call! Trig and signal generation go hand in hand.
+Manipulating Numbers: Essential Complex Arithmetic
+Complex arithmetic is at the core of both analysis and design tasks performed by signals and systems engineers. Being able to manipulate complex numbers by using paper, pencil, and a pocket calculator on the fly is imperative. So I strongly suggest that you work the examples in this section on your pocket calculator.
+Knowing how to use the tools available to you is also important. Using computer programs to manipulate complex numbers and check your answers is a part of everyday signals and systems work, so I give numerical examples in Python to back up hand-calculator calculations.
+You need a scientific calculator to work complex arithmetic problems efficiently. Don’t expect Apple’s Siri to be there, spouting out answers for you. You need to get to know your scientific calculator — before you actually need it. So spend time digging into the details of how the calculator works, and practice! The payoff is quick calculations and peace of mind.
+
+
+37
+Chapter 2: Brushing Up on Math
+Believing in imaginary numbers
+Imaginary numbers are indeed real, but they have a special multiplicative scale factor that makes them imaginary. The need for imaginary numbers comes about when you try to solve an equation involving the square root of a negative number. The scale factor represents the square root of –1 but is denoted with the letters i and j.
+A complex number is composed of a real part x and or i times the imaginary part, y: z = x + jy, where .
+Electrical engineers typically use j as the imaginary part scale factor because i usually denotes current. When viewed in the complex plane, the real part lies along the horizontal axis, and the imaginary part lies along the vertical or j axis. Therefore, a complex number is like a point (x, y) in a 2D Cartesian coordinate system.
+As you may have heard in a physics and/or an analytic geometry course, the location of an object or point in two dimensions can be viewed as an order pair (x, y) and also as , where and are unit vectors pointing along the positive x- and y-axis, respectively. The same idea holds in the complex plane, but the operator rules are different. The imaginary part, y, is a real number just like the real part, x, is a real number. Also keep in mind that , so j · j = –1.
+The rectangular (real/imaginary part) form of a complex number is z = (x, y) = x + jy. The corresponding polar form (magnitude and angle form) is z = (r, θ) = r · ejθ = |z|ejarg(z) = r∠θ, where, just like in 2D vector analysis,
+is the magnitude, and θ = arctan(y/x) is the angle in radians (arctan = tan–1). Voilà! I just described the rectangular-to-polar conversion operation. To get the angle in degrees from radians, you just need to convert, using the factor 180 degrees/π radians.
+Finding the angle of a complex number by using arctan can be tough. The arctan function produces the proper angle only if the complex number lies in Quadrants I or IV. But arctan(y/x) can’t discern where the negative values occur in the ratio y/x, so you find complex numbers that lie in Quadrants II and III by using π + arctan(y/x).
+If you’re using a calculator that supports complex number operations, use the built-in complex number capability. If you’re using a tool such as Python with PyLab, use abs(z) to find the magnitude and angle(z) or arctan2(y, x) to directly get the angle. See Examples 2-6 and 2-7 for details.
+
+
+38 Part I: Getting Started with Signals and Systems
+A polar-to-rectangular conversion takes you back to rectangular form: .
+Example 2-6: Consider za = 3 + j4. Find za in polar form, following these steps:
+1. Calculate the magnitude of za.
+The magnitude is .
+2. Find the angle of za.
+Because 3 and 4 are both positive, you know that the point lies in Quadrant I. The angle of za is given by the arctan alone:
+radians.
+Putting these two steps together gives you za=5ej0.9273, which is the polar
+form of za.
+Check out a graphical depiction of resolving the proper quadrant for when using arctan in Figure 2-1.
+Figure 2-1: Finding the proper quadrant for the angles of complex numbers za
+and zb when
+using arctan.
+Using Python with PyLab, you can convert the complex number to magnitude and angle:
+In [28]: z_a = 3 + 4j In [29]: abs(z_a) Out[29]: 5.0 In [30]: angle(z_a) # angle in radians by default Out[30]: 0.9272 In [31]: angle(z_a, deg=True) # gives angle in degrees Out[31]: 53.130
+
+
+39
+Chapter 2: Brushing Up on Math
+Example 2-7: Test your ability to resolve the proper quadrant when using arctan by considering zb = –3 + j4. Find zb in polar form in two steps:
+1. Calculate the magnitude of zb.
+The magnitude of zb is .
+2. Find the angle of zb.
+Because 3 is negative and 4 is positive, you know that the point lies in Quadrant II. The angle of zb is given by
+radians.
+Therefore, the polar form of is zb=5ej2.2143.
+The details of the angle calculation are depicted in Figure 2-1. Using Python with PyLab, you can convert the complex number to magnitude and angle:
+In [32]: z_b = -3 + 4j In [33]: abs(z_b) Out[33]: 5.0 In [34]: angle(z_b) Out[34]: 2.2143
+Example 2-8: Consider zc = 2ejπ/3. Find zc in rectangular coordinates in one step:
+Looking at zc reveals that rc = 2 and θc = π/3, so
+.
+Using Python, the calculation is direct:
+In [41]: z_c = 2*exp(1j*pi/3.) # enter in polar form In [42]: z_c Out[42]: (1.0000+1.7321j)
+Operating with the basics
+The basic arithmetic operations with complex numbers are addition, subtraction, multiplication, and division. Addition and subtraction are easiest in rectangular form, and multiplication and division are easiest in polar form. Table 2-2 shows the formulas for the four operations, starting from z1 = x1 + jy1
+and z2 = x2 + jy2.
+
+
+40 Part I: Getting Started with Signals and Systems
+Table 2-2 Basic Complex Math Operations
+Operation Formula
+Add: z3 = z1 + z2 (x1 + x2) + j(y1 + y2)
+Subtract: z3 = z1 – z2 (x1 – x2) + j(y1 – y2)
+Multiply: z3 = z1z2
+(polar form)
+(x1x2 – y1y2) + j(x1y2 + y1x2)
+Divide: z3 = z1/z2
+(polar form)
+Another basic operation is complex conjugation: when z = x + jy.
+Note that z · z* = (x + jy)(x – jy) = x2 + y2 = |z|2.
+At times, you may want to deal with only the real or imaginary part of an expression. The notation for the real part (real part operator) is Re{z} = Re{x + jy} = x. The notation for the imaginary part (imaginary part operator) is Im{z} = Im{x + jy} = y. As a simple example, .
+Next, work through some calculations that utilize the basic complex math operations. Getting familiar with these types of calculations helps you prepare for more complicated topics in signals and systems.
+Example 2-9: Let z1 = 1 + j7 and z2 = –4 – j9. The operations of Table 2-2 occur
+frequently, so it’s time to run some numbers for z1 + z2, z1z2, and z1/z2. Here’s
+how to work through the four calculations in sequence:
+1. Find the sum, z1 + z2, following immediately from the formula of
+Table 2-2.
+The real parts add and the imaginary parts add: z1 + z2 = [1 + (–4)] +
+j[7 + (–9)] = –3 – j2.
+
+
+41
+Chapter 2: Brushing Up on Math
+2. Work the multiplication result by using the polar form formula given in the multiplication row of Table 2-2.
+Begin by first converting z1 and z2 to polar form (see Examples 2-6 and
+2-7), and then multiply the magnitudes and add the angles to find the polar form of the answer. Finally, convert back to rectangular form:
+3. Work the division, using the polar form formula of the division row of Table 2-2.
+Start with the polar form answers from Step 2, divide the magnitudes and subtract the angles, and finally convert back to rectangular form:
+4. Using Python with PyLab as a numerical tool, check your results:
+In [57]: z_1 = 1 + 7j # define z1 In [58]: z_2 = -4 - 9j # define z2 In [59]: z_1 + z_2 # form the sum Out[59]: (-3-2j) In [60]: z_1*z_2 # form the product Out[60]: (59-37j) In [61]: z_1/z_2 # form the quotient Out[61]: (-0.6907-0.1959j)
+The Python results agree with the hand calculation. So pick up your calculator now and see whether you can get matching results.
+Applying Euler’s identities
+Euler’s formula is a useful mathematical result in signals and system analysis:
+ejθ = cosθ + jsinθ
+The formula is especially helpful when particular complex exponentials, where θ is a function of time, are used to develop the phasor addition
+
+
+42 Part I: Getting Started with Signals and Systems
+formula (described in the next section). Given z = rejθ and Euler’s formula, the polar-to-rectangular conversion formula follows immediately, because z = rejθ = r(cosθ + jsinθ) = rcosθ + jrsinθ.
+The inverse formula is perhaps even more useful:
+In Part III of this book, I use both inverse formulas extensively, particularly to simplify expressions, demonstrating the importance of Euler’s identity in real-world signals and systems work. As a quick example of the formula’s practical application, consider factoring in the following to form a cosine:
+Applying the phasor addition formula
+When sinusoidal signals of like frequency ω0 are added together (superim
+posed), the result is a single sinusoidal signal having composite amplitude A and phase φ. In mathematical terms, given N sinusoidal functions (signals) each of identical frequency ω0, you can show
+that the sum
+where, on the right side, the composite amplitude A and phase φ is related to the amplitude Ak and phase φk of each term through the summation.
+Example 2-10: Given , find the composite signal . Follow these steps to get A and φ:
+1. Rewrite the sine term as a cosine, so all terms in the sum fit the phasor addition formula mathematical form.
+Using the Row 1/Column 1 trig identity of Table 2-1, .
+
+
+43
+Chapter 2: Brushing Up on Math
+2. Identify the magnitude and angles Akejφk, k = 1, 2, two terms in the
+problem statement:
+3. Add the two complex numbers that are in polar form.
+4. Check the calculation on your calculator and then work the calculation in Python, as shown here:
+In [115]: A_phi=4*exp(1j*pi/4.) + 15*exp(-1j*pi/2.) In [117]: (abs(A_phi), angle(A_phi)) # polar form Out[117]: (12.4959, -1.3425)
+5. You find Aejφ in Step 3; write out the final form by putting the magnitude in front of the cosine and entering the angle inside the argument of the cosine:
+x(t) = 12.4959cos(ω0t – 1.3425)
+Seeing the proof for the phasor addition formula
+Here’s the proof of the phasor addition formula:
+1. Using Euler’s formula and the real part operator, replace each term with and recognize that the sum of real parts is identical to the real part of the sum:
+2. Inside the real-part operator on the far right, factor outside the sum. What remains is the sum of N complex numbers in polar form, which finally produces a single complex number in polar form:
+3. Make the substitution of Step 2 into Step 1, which results in
+The expected result!
+
+
+44 Part I: Getting Started with Signals and Systems
+Catching Up with Calculus
+Single variable integration and differentiation are main calculus topics at play in signals and systems work. In this section, I provide a table of differentiation properties and a short table of indefinite and definite integrals. The tables are for quick reference as the need arises. I also point out simple optimization theory, including min and max and efficient numerical techniques.
+And lest you think I may have completely spaced the importance of geometric series formulas, don’t worry! Formulas for finite and infinite geometric series are available in this section, too, so you can check back here if needed when you read Chapters 6, 11, and 14 on discrete-time signals and systems. I also describe tools for polynomial root finding in this section.
+Differentiation
+Finding the derivative of function is part of the core material in a calculus course. And being able to differentiate simple functions is essential to signals and systems analysis. This section reviews the fundamentals of differentiation and provides a table of key differentiation formulas.
+The derivative of an equation is the slope at any point where the equation is evaluated. Formally, the function f(x) has derivative f'(x), at the point x if the
+limit exists.
+If you need help when working problems where differentiation is involved, reference the differentiation formulas in Table 2-3. In this table, assume a is a constant and both u and v are possibly functions of x.
+Table 2-3 Differentiation Formulas
+
+
+45
+Chapter 2: Brushing Up on Math
+Example 2-11: Given , find . To solve, use the formulas in Table 2-3:
+You can also use the CAS Maxima to check this differentiation.
+Integration
+What differentiation does, integration undoes. In mathematical terms, the integral of the function f(x) is known as the antiderivative. The good news about signals and systems work is that although integration is present in the associated problem solving, you can use integration tables for both indefinite and definite integrals.
+Indefinite integrals are the antiderivatives. So when I write
+I’m saying that
+In Table 2-4, I provide a collection of indefinite integrals that are useful for signals and systems work. In this table, assume a is a constant.
+Table 2-4 Indefinite Integrals
+
+
+46 Part I: Getting Started with Signals and Systems
+Example 2-12: To see how numerical integration can be put into motion on a problem with known solution, find the integral of te–5t on the interval [0, 4] by using the Row 2/Column 2 entry of Table 2-4:
+You can also use the CAS Maxima to check this integration.
+Definite integrals, also known as integrals with fixed limits, are important in the study of signals and systems. Table 2-5 is a collection of useful definite integrals. In this table, assume a is a constant.
+Table 2-5 Definite Integrals
+When closed-form integration isn’t workable — that is, if the integral isn’t available in a table — you need to use numerical integration. By closed-form, I mean the solution can be written in terms of a small number of well-known functions. Tools such as Python and the integrate module of SciPy provide a collection of numerical integration routines. I use the function quad in Example 2-13.
+Numerical integration saves you the trouble of an extensive search for a closed-form integral, and it may be your only option in some cases. But use numerical integration with care to ensure convergence to the proper solution.
+Example 2-13: To gain confidence in the use of numerical integration, I repeat the integration of Example 2-12, using Python and the function quad from the SciPy module integrate:
+In [90]: from scipy.integrate import quad In [91]: def my_inte(t): # integrand function ...: return t*exp(-5*t) In [92]: quad(my_inte,0,4) # integrate from 0 to 4 Out[92]: (0.03999999826863095, 7.91215216153553e-14) In [93]: (1 - 21*exp(-20))/25. Out[93]: 0.03999999826863096
+
+
+47
+Chapter 2: Brushing Up on Math
+The calculation requires a Python function, Line [91], to first represent the integrand. Second, you call quad with the integrand function name followed by the lower and upper limits. The function returns the integral and the absolute error (see Line [92]). Comparing Line [92] with the known closed-form solution of Line [93] reveals very close agreement.
+System performance
+When you design a system, you need to maximize, minimize, or find critical values of performance functions. A performance function, such as a timedomain or frequency-domain response, provides a means to demonstrate that your design meets requirements set by your customer. Calculus and numerical methods based on calculus can help.
+Elementary calculus reveals that function f(x) is a maximum where the derivative is 0, as long as the function isn’t passing through an inflection point. So if the solution to is x0, does x0 correspond to a maximum or mini
+mum? To find out, check the sign of the second derivative at x0. If ,
+then x0 corresponds to a minimum. If , then x0 corresponds to a
+maximum.
+Example 2-14: To minimize the quadratic function f(x) = x2 + 10x + 20, use this two-step process:
+1. Take the derivative of f(x) and set the result equal to 0:
+2. See whether the point corresponds to a maximum or minimum. Take the second derivative and check the sign at x0:
+Example 2-15: More often than not, the performance function is nontrivial, meaning a pure calculus-based solution involves some work. Consider the step response waveform (see Chapter 13). A plot of this function is given in Figure 2-2.
+This function rises up from 0 to 1 as t increases from 0 to infinity but with a small amount of overshoot, which means the function exceeds 1 before settling back to 1.
+
+
+48 Part I: Getting Started with Signals and Systems
+Figure 2-2: Plot of the step response y(t), showing the approximate location of the peak overshoot.
+Suppose the overshoot value and the corresponding time are both needed for system performance assessment. You can find a numerical solution quickly by first filling an array with closely spaced values of y(t) over 2 to 6 s. Use max to get the maximum value on this interval, and then use find to find the array index where the maximum occurs. Finally, plug the index into the t array to reveal the time of the peak.
+In [120]: t = arange(2,6,.001) # small time step In [121]: y = 1-(exp(-t/sqrt(2)) *(sin(t/sqrt(2))+cos(t/sqrt(2)))) In [122]: max_y = max(y) # obtain peak numerically In [123]: find(y == max_y) # find peak index Out[123]: array([2443], dtype=int64) # at index 2443 In [124]: t_max = t[2443] # plug index into t array In [125]: (max_y,t_max) # display results Out[125]: (1.0432, 4.4429) # (overshoot, time in s)
+The peak overshoot in this case is 1.0432, or about 4.3 percent, and it’s located at 4.44 s.
+Geometric series
+In the study of discrete-time signals and systems (covered in Chapters 6, 7, 11, 12, and 14), you frequently encounter geometric series — finite and infinite. For example, in Chapter 6, both forms arise in impulse response
+
+
+49
+Chapter 2: Brushing Up on Math
+calculations, and in Chapters 11 and 14, where the discrete Fourier transform and z-transforms are studied, both forms are again essential for developing transform pairs.
+The finite geometric series takes the following form, where a is a constant:
+The infinite series takes this form:
+Table 2-6 provides a short table of geometric series sums.
+Table 2-6 Series Sum Formulas
+Sum Condition
+none
+none
+none
+|a| < 1
+|a| < 1
+Example 2-16: To sum the series , follow this three-step process.
+Note: Table 2-6 doesn’t contain an exact fit for this summation, so you need to do some improvising.
+1. Introduce a variable change to transform the sum to the standard form.
+Let m = n – 5. Then, in the present sum, replace n with m + 5.
+2. Transform the sum limits, too:
+and
+
+
+50 Part I: Getting Started with Signals and Systems
+3. Put Steps 1 and 2 together in the original sum:
+Finding Polynomial Roots
+To perform stability analysis of systems (covered in Chapters 13 and 14), you need to be able to find the roots — values of the independent variable where the polynomial is 0 — of a polynomial of degree 2 and higher. The quadratic formula works for the second-order case, but numerical root finding is the best option for higher-order polynomials.
+Numerical solving routines within Python and PyLab make calculating numerical roots a snap. Similar routines are available in other tool sets.
+The problem here is to find the roots of the Nth-degree polynomial: .
+The function pN = roots(AN) returns the polynomial roots into array pN given the coefficients aN, aN–1, ... , a1, a0 are contained in the array AN.
+A special Nth-degree polynomial that occurs in discrete-time systems modeling is P(s) = sN – 1. Yes, you can use roots for this polynomial, but an analytical solution, known as the roots of unity, is readily available. To solve, set P(s) = 0, so . The roots are
+because
+The roots are located in the complex plane equally spaced around the unit circle, at separation angle 2π/N.
+A variation on the original polynomial is P1(s) = sN – aN. The N roots in this case
+take the same angle values but have magnitude a.
+
+
+Chapter 3
+Continuous-Time Signals and Systems
+In This Chapter
+▶ Defining signal types
+▶ Classifying specific signals
+▶ Modifying signals
+▶ Looking at linear and time-invariant systems
+▶ Checking out a real-world example system
+I
+n signals and systems, the distinction continuous time refers to the independent variable, time t, being continuous (see Chapter 1). In this chapter, I provide an inventory of signal types and classifications that relate to electrical engineering and cover the process of figuring out the proper description for a particular signal. Like their discrete-time counterparts described in Chapter 4, continuous-time signals may be classified as deterministic or random, periodic or aperiodic, power or energy, and even or odd. Signals hold multiple classifications.
+Also in this chapter, I describe the process of moving signals around on the time axis. Modeling the placement of signals on the time axis affects system functionality and relates to the convolution operation that’s described in Chapter 5. Time alignment of signals entering and leaving a system is akin to composing a piece of music.
+Don’t worry; I include a drill down on system types and classifications here, too, focusing on five property definitions: linear, time-invariant, causal, memoryless, and stability. Find a system-level look at the signals and systems model of a karaoke machine at www.dummies.com/extras/signalsandsystems. The signal flow through this system consists of two paths: one for the recorded music and the other for the singer’s voice that enters the microphone. The subsystems of the karaoke machine act upon the two input signal types — in this case, both random signals — to finally end up at the speakers, which convert the electrical signals to sound pressure waves that your ears can interpret.
+
+
+52 Part I: Getting Started with Signals and Systems
+Considering Signal Types
+Knowing the different types of signals makes it possible for you to provide appropriate stimuli for the systems in your product designs and to characterize the environment in which a system must operate. Both desired and undesired signals are present in a typical system, and models make it easier to create products that can operate in a range of different conditions.
+Some signals types are a means to the end — the signal is designed to fulfill a purpose, such as carrying information without wires. Other signal types are useful for characterizing system performance during the design phase. Still other signal types are intended to make things happen in an orderly fashion, such as timing events while a person arms and disarms a burglar alarm.
+Signal types described in this section include sinusoids, exponentials, and various singularity signals, such as step, impulse, rectangle pulse, and triangle pulse. Real signals are typically composed of one or more signal types.
+Exponential and sinusoidal signals
+In this section, I introduce you to two of the most fundamental and important signal types:
+✓ Complex exponential: This signal occurs naturally as the response (output) of linear time-invariant systems (see the section “Checking Out System Properties,” later in this chapter) to arbitrary inputs.
+✓ Real and complex sinusoids: These signals function inside electronic devices, such as wireless communications, and form the basis for the Fourier analysis (frequency spectra), which is described in Part III of this book.
+A general complex exponential signal, which also includes exponentials and real complex sinusoidal signals, is , where, in general, and . This is a lot to handle when you think about it. The signal contains two parameters but, because each parameter is generally complex — having a real and imaginary part (for ) or magnitude and phase (for ) — four parameters are associated with this signal. To make this concept manageable to study, I break down the signal into several special cases and discuss them in the following sections.
+
+
+53
+Chapter 3: Continuous-Time Signals and Systems
+Real exponential
+For real, ( ) and , meaning . You arrive at the real exponential signal . Of the two parameters that remain, A controls the amplitude of the exponential and controls the decay rate of the signal.
+In practice, the real exponential signal also contains the function u(t), known as the unit step function (see the later section “Unit step function” for details). For now, all you need to know about the step function is that it acts as a switch for a function of time. The switch u(t) is 0 for t < 0 and 1 for t > 0. Using u(t), limit x(t) to turning on at by writing .
+Example 3-1: To plot the real exponential signal for various values of , use Python with PyLab. See the results in Figure 3-1.
+In [689]: t = arange(-2,10,.01) In [690]: plot(t,2*exp(-.2*t)*ssd.step(t)) In [691]: plot(t,2*exp(0*t)*ssd.step(t),’b--’) In [692]: plot(t,2*exp(.2*t)*ssd.step(t),’b-.’)
+Figure 3-1: A real exponential signal for positive, zero, and negative.
+Complex and real sinusoids
+For imaginary ( ) and complex ( ), the signal becomes a complex sinusoid with real and imaginary parts being the cosine and sine signal, respectively. Take a closer look:
+
+
+54 Part I: Getting Started with Signals and Systems
+The last line comes from applying Euler’s formula.
+By breaking out the real and imaginary parts as , you get the real cosine and sine signals: and . In this signal model, A is the signal amplitude, is the signal frequency in rad/s or when using the substitution , f0 is the frequency in hertz (cycles per second), and is the phase.
+See the later section “Deterministic and random” for more information on these parameters.
+The real cosine signal is one of the most frequently used signal models in all of signals and systems. When you key in a phone call, you’re using (and hearing) a combination of two sinusoidal signals to dial the phone number. The wireless LAN system you use at work or home also relies on the real sinusoid signal and the complex sinusoid. A real sinusoid signal with rad/s is the signal that enters your home to deliver energy (power) to run your appliances and lights. Modern life is filled with the power of the sinusoidal signal.
+The case of K real sinusoids is also useful in general signal processing and communications applications. You simply add together the sinusoidal signals:
+, with the substitution
+This model can represent the result of pressing one or more keys on a piano keyboard.
+Damped complex and real sinusoids
+As a special case of the general complex exponential, assume that is complex , is complex, and u(t) is included, so the signal turns on for . The signal becomes a damped complex sinusoid with real and imaginary parts being damped cosine and sine signals, respectively:
+The term damped means that drives the signal amplitude to 0 as t becomes large. The sinusoid sine or cosine is the other time-varying component of the signal. Breaking out the real and imaginary parts,
+
+
+55
+Chapter 3: Continuous-Time Signals and Systems
+Have you ever experienced a damped sinusoid? Physical examples include a non-ideal swinging pendulum or your car’s suspension after you hit a pothole. In both cases, the oscillations eventually stop due to friction. With an appropriate measuring device, the physical motion can convert to an electrical signal. In the car example, the signal may be fed into an active ride control system and other inputs to modify the suspension system.
+Singularity and other special signal types
+As preposterous as it may sound, sinusoidal signals don’t rule the world. You need singularity signals to model other important signal scenarios, but this type of signal is only piecewise continuous, meaning a signal that has a distinct mathematical description over contiguous-time intervals spanning the entire time axis . The piecewise character means that a formal derivative doesn’t exist everywhere. A singularity signal may also contain jumps.
+In this section, I describe a few of the most common singularity functions, including rectangle pulse, triangle pulse, unit impulse, and unit step. With these functions, you can put together many special waveforms, such as the one shown in Figure 3-8, later in this chapter.
+Rectangle and triangle pulse
+Two useful singularity signal types used in signals and systems analysis and modeling are the rectangle pulse, , and triangle pulse, .
+Here’s the piecewise definition of the rectangle pulse:
+This signal contains a jump up and a jump down. Note: Otherwise is math terminology for all the remaining time intervals on not specified in the definition. For the rectangle pulse, that would be . And also assume that τ is positive.
+Here is the definition for the triangle pulse:
+See plots of these two pulse signals in Figure 3-2.
+
+
+56 Part I: Getting Started with Signals and Systems
+Figure 3-2: The rectangle pulse (a) and the triangle pulse (b).
+The full base width of the rectangle pulse is ; for the triangle pulse, it’s . This is no accident. Check out Chapter 5 to find out how to get a triangle pulse of base width by convolving two rectangle pulses with a width of .
+Here are the Python functions for these two signal types:
+def rect(t,tau): x = np.zeros(len(t)) for k,tk in enumerate(t): if np.abs(tk) > tau/2.: x[k] = 0 else: x[k] = 1 return x
+def tri(t,tau): x = np.zeros(len(t)) for k,tk in enumerate(t): if np.abs(tk) > tau/1.: x[k] = 0 else: x[k] = 1 - np.abs(tk)/tau return x
+The functions are designed to accept ndarray variables when using PyLab. Later, in Figure 3-8, these functions create a quiz problem. Note that I use Maxima for computer algebra–oriented calculations. For numerical calculations, particularly those that benefit from working with arrays or vectors, I use Python.
+Unit impulse
+You use the unit impulse, or Dirac delta function signal type, as a test waveform to find the impulse response of systems in Chapter 4. It’s a fundamental but rather mysterious signal.
+
+
+57
+Chapter 3: Continuous-Time Signals and Systems
+You can define this signal only in an operational sense, meaning how it behaves. The signal appears as a spike, but the spike has zero width and unity area. This is confusing at first. But think of the cue ball striking another ball in a game of billiards. The momentum transfers instantly (impulsively), and the struck ball begins to roll. In an electrical circuit, think of a battery momentarily (very momentarily) making contact with the circuit input terminals. The circuit responds with its impulse response.
+Operationally, the delta function has the following key properties:
+The signal appears as a function with unit area located at . You can sift out a single value of the function x(t), which is assumed to be continuous at , by bringing it inside the integral:
+This result is known as the sifting property of the unit impulse function. To actually put your hands on something that closely resembles the true unit impulse function, define the test function :
+Tooling up
+The functions rect and tri are contained in the Python code module ssd.py found at www.dummies.com/extras/signals andsystems. To access the functions from IPython, import the module, using import ssd at the IPython command prompt.
+To access the functions rect, qualify them with the module name. In this case, that means something like ssd.rect(t,2) for a rectangle of width 2 centered at t = 0. If you want to create a rectangle of width 2 on a time
+axis that runs from [–5, 5] and plot the results, use this code:
+In [6]: import ssd In [7]: t = arange(-5,5,.01) # a vector of time samples In [8]: x = ssd.rect(t,2) # create the signal vector In [9]: plot(t,x)
+If you make changes to the module ssd.py, such as adding another function, you need to reload the module (not import it).
+
+
+58 Part I: Getting Started with Signals and Systems
+Notice that this function has unit area, like , and is focused at t = 0. In fact, as desired, the signal behaves like as , or . To illustrate the action of the sifting property, I first sketch the integrand by using in Figure 3-3a and then using in Figure 3-3b.
+The proper way of plotting is to draw it as a vertical line with an arrow at the top. The location on the axis is where the argument is 0, as in , and height corresponds to the area. That means has location t = 0 and a height of 1, and has location and height A. See this in Figure 3-3b.
+Figure 3-3: A graphical depiction of the sifting property, using (a) and then (b).
+Unit step function
+The unit step function, u(t), is also a singularity function. A popular use is modeling signals with on and off gates. In Chapter 5, I describe the step response of a system. Start from the unit impulse:
+Thinking of , you can say . In the limit, u(t) contains a jump at t = 0, so it’s not defined.
+You can program the unit step in Python:
+def step(t): x = np.zeros(len(t)) for k,tt in enumerate(t): if tt >= 0: # the jump occurs at t = 0 x[k] = 1.0 return x
+
+
+59
+Chapter 3: Continuous-Time Signals and Systems
+The step function is also available in ssd.py. To return to unit impulse function, just differentiate u(t) to get
+Don’t sweat the details about the existence of the derivative at t = 0. Just replace the derivative at the discontinuity with a unit impulse function of height equal to the jump height. Note that this appears to violate what you probably learned in calculus about derivatives, but the unit impulse function fits perfectly in an engineering math sense.
+Example 3-2: To practice working with the derivatives of signals that incorporate singularity functions, consider the derivative of the rectangle and triangle pulse functions.
+✓ The derivative of contains two unit impulse functions because it contains two jumps. A jump by 1 at , and a jump down by 1 at :
+✓ The derivative of doesn’t contain jumps, but it does contain three points of discontinuity, . When taking the derivative, focus on the derivative away from these points:
+Figure 3-4 shows both signal derivatives.
+Grasping the reality of step and impulse signals
+A real-world step function doesn’t suddenly jump from 0 to 1. The waveform smoothly transitions from 0 to 1 over a period of time. When you zoom in on the real signal, the gradual transition is visible. When you zoom way out, the signal appears as a true mathematical step function, apparently jumping
+from 0 to 1 in no time. When you differentiate the real-world step, the smooth transition from 0 to 1 has a derivative everywhere. The result is a pulse-like signal that results from the nonzero derivative over the step transition. When viewed from a distance, the signal looks like an impulse function.
+
+
+60 Part I: Getting Started with Signals and Systems
+Figure 3-4: Derivatives of (a) and (b).
+Getting Hip to Signal Classifications
+Signals are classified in a number of ways based on properties that the signals possess. In this section, I describe the major classifications and point out how to verify and classify a given signal. Classifications aren’t mutually exclusive. A periodic signal, for example, is usually a power signal, too. And a signal may be even and aperiodic.
+Deterministic and random
+A signal is classified as deterministic if it’s a completely specified function of time. A good example of a deterministic signal is a signal composed of a single sinusoid, such as with being the signal parameters. A is the amplitude, is the frequency (oscillation rate) in cycles per second (or hertz), and is the phase in radians. Depending on your background, you may be more familiar with radian frequency, , which has units of radians/sample. In any case, x(t) is deterministic because the signal parameters are constants.
+Hertz (Hz) represents the cycles per second unit of measurement in honor of Heinrich Hertz, who first demonstrated the existence of radio waves.
+A signal is classified as random if it takes on values by chance according to some probabilistic model. You can extend the deterministic sinusoid model to a random model by making one ore more of the parameters random. By introducing random parameters, you can more realistically model real-world signals.
+To see how a random signal can be constructed, write , where corresponds to the drawing of a particular set of values from a set of possible outcomes. Relax; incorporating random parameters in your signal models is a topic left to more advanced courses. I simply want you to know they exist because you may bump into them at some point.
+
+
+61
+Chapter 3: Continuous-Time Signals and Systems
+To visualize the concepts in this section, including randomness, you can use the IPython environment with PyLab to create a plot of deterministic and random waveform examples:
+In [234]: t = linspace(0,5,200) In [235]: x1 = 1.5*cos(2*pi*1*t + pi/3) In [237]: plot(t,x1) In [242]: for k in range(0,5): # loop with k=0,1,...,4 ...: x2 = (1.5+rand(1)-0.5))*cos(2*pi*1*t + pi/2*rand(1)) # rand()= is uniform on (0,1) ...: plot(t,x2,’b’) ...:
+See the results in Figure 3-5, which uses a PyLab subplot to stack plots.
+Figure 3-5: A deterministic sinusoid signal (a) and an ensemble of five random amplitude and phase sinusoids (b).
+Generate the deterministic sinusoid by creating a vector of time samples, t, running from zero to five seconds. To create the signal, x1 in this case, I chose values for the waveform parameters .
+For the random signal case, A is nominally 1.5, but I added a random number uniform over (–0.5, 0.5) to A, making the composite sinusoid amplitude random. The frequency is fixed at 1.0, and the phase is uniform over . I create five realizations of using a for loop.
+
+
+62 Part I: Getting Started with Signals and Systems
+Periodic and aperiodic
+Another type of signal classification is periodic versus aperiodic. A signal is periodic if , where , the period, is the largest value satisfying the equality. If a signal isn’t periodic, it’s aperiodic.
+When checking for periodicity, you’re checking in a graphical sense to see whether you can copy a period from the center of the waveform, shift it left or right by an integer multiple of , and if it perfectly matches the signal T0
+seconds away. The single sinusoid signal is always periodic, and the proof, which relies on simple trigonometry (flip to Chapter 2 for a trig refresher), allows you to determine what the period is.
+Example 3-3: To establish that a single sinusoid signal is periodic and to determine the period, follow these steps:
+1. Ask yourself: What does it take to make the equality hold?
+Making the arguments equal seems to be the only option.
+2. Expand the argument of the cosine on the right side to see the impact of the added :
+Cosine is a modulo function; that is, the functional values it produces don’t change when the argument is shifted by integer multiples of , which makes the single sinusoid a periodic signal from the get-go.
+3. To establish the period, observe that forcing means .
+Because is the fundamental period, is the fundamental frequency; they’re reciprocals.
+Example 3-4: Figure 3-6a shows a periodic signal known as a periodic pulse train because it has an infinite train of pulses. Each pulse has width , and the ellipsis indicate that the pulse train continues in both directions. The pulses that follow each other don’t have to be periodic, though. In Figure 3-6b, a waveform with a single isolated pulse or just a few pulses makes the signal aperiodic.
+
+
+63
+Chapter 3: Continuous-Time Signals and Systems
+Figure 3-6: A periodic pulse train signal with pulse width and period (a) and a single, aperiodic pulse (b).
+Considering power and energy
+To classify a signal x(t) according to its power and energy properties, you need to determine whether the energy is finite or infinite and whether the power is zero, finite, or infinite. The measurement unit for power and energy are watts (W) and joules (J).
+In circuit theory, watts delivered to a resistor of R ohms is represented as
+, where V is voltage in volts and I is current in amps.
+Figure 3-7 shows that a circuit is composed of resistor and voltage sources, demonstrating the interconnection of signals and systems with physics and circuit concepts. A simple power calculation in circuit analysis becomes instantaneous power with time dependence, and the resistance is normalized to 1 ohm as used in signals and systems terminology.
+Figure 3-7: Relating power in a circuit to signals and systems 1-ohm normalization.
+
+
+64 Part I: Getting Started with Signals and Systems
+With the circuit calculation of power, you can introduce time dependence and define a signal’s instantaneous power as
+Computer and electrical engineers use the abstraction available through mathematics to work in a convenient 1-ohm environment.
+The significance of the 1-ohm impedance normalization is that instantaneous power is simply or . It’s convenient then to use to represent the signal — voltage or current. Keep in mind that, unless told otherwise, in all signals. When modeling results need to be coupled to physical, real-world measurements, you can add back in the resistance, or impedance level.
+Average power, P (watts), and average energy, E (joules), are defined as follows:
+The is used when the signal happens to be complex. For x(t) periodic, you can simplify the average power formula to
+where is the period. Note that the single limit on the far right integral means that you can use any interval for the calculation. The limit is gone, and the integration now covers just one period.
+For x(t) to be a power signal, and . To understand why this is, think about a signal that has nonzero but finite power. Integrating the power over all time gives you energy. When you integrate nonzero finite power over infinite time, you get infinite energy.
+An energy signal requires and . Yet some signals are neither power nor energy types because they have unbounded power and energy. For these, .
+Mathematically, a signal can have infinite power, but that’s not a practical reality. Infinite energy indicates that the signal duration is likely infinite, so it doesn’t make sense to deal with energy. Power, on the other hand, is energy per unit time averaged over all time, making power more meaningful than energy.
+
+
+65
+Chapter 3: Continuous-Time Signals and Systems
+Here are a few examples of power and energy calculations.
+Example 3-5: To classify a signal with one or two cosines as a power or energy function, follow this process:
+✓ For a single real sinusoid , you can take advantage of the fact that x(t) is periodic with a period in these calculations:
+This is a power signal because E is infinite and P is finite.
+Proving the simplified power calculation formula
+Create the proof of the simplified power calculation formula for periodic signals in three steps:
+1. Let , which allows the entire time axis to be used for the average:
+2. Because , N any integer, it follows that
+3. Finally, you get
+
+
+66 Part I: Getting Started with Signals and Systems
+✓ For a signal with two real sinusoids, such as , as long as , you can use this equation to solve for P:
+This is the sum of powers for single sinusoids, which is all you need. Periodicity of x(t) isn’t a requirement.
+Example 3-6: Consider a signal with two sinusoids:
+Can this signal be periodic? The individual sinusoid periods are . For the composite signal to be periodic, must be commensurate, which means you seek the smallest values so that periods of duration are equal to periods of duration . Here’s how to set it up in an equation:
+The ratio of the two periods and, likewise, the frequencies must be a rational number. The fundamental period is . In algebraic terms, you can state it as the least common multiple (LCM) of the periods or the greatest common divisor (GCD) of the frequencies:
+If Hz and Hz, Hz, so .
+If you have a calculator that incorporates a computer algebra system (CAS), you may be able to use the LCM and GCD functions to check your hand calculations. If not, consider using Maxima (see Chapter 1 for details).
+The LCM and GCD functions in Maxima confirm the hand calculations presented earlier:
+
+
+67
+Chapter 3: Continuous-Time Signals and Systems
+Periodicity among multiple sinusoids is essential to Fourier series (covered in Chapter 8).
+Example 3-7: To classify as a power or energy (or neither) signal with respect to , consider the following three cases. To properly classify x(t), you need to find both the energy (E) and the power (P) values. Using the definition given in the section “Considering power and energy,” find out whether E is finite or infinite and whether P is zero, finite, or infinite.
+✓ Case 1:
+This is an energy signal because E is finite and P is zero.
+✓ Case 2:
+This is a power signal because E is infinite and P is finite.
+✓ Case 3: :
+This signal is neither power nor energy because P is infinite. The signal amplitude becomes unbounded (refer to Figure 3-1). The term unbounded means magnitude approaching infinity.
+Sinusoidal signals are power signals. For a single sinusoid, the power is just
+. For K sinusoids at distinct frequencies, the signal power is .
+If sinusoids have the same frequency, you need to combine these terms by using the phasor addition formula (described in Chapter 2). To figure out the power of each like frequency, you just need the equivalent amplitude.
+
+
+68 Part I: Getting Started with Signals and Systems
+Even and odd signals
+Signals are sometimes classified by their symmetry along the time axis relative to the origin, t = 0. Even signals fold about t = 0, and odd signals fold about t = 0 but with a sign change. Simply put,
+To check the even and odd signal classification, I use the Python rect() and tri() pulse functions to generate six aperiodic signals. Here’s the code for generating two of the signals:
+In [759]: t = arange(-5,5,.005) # time axis for plots In [760]: x1 = ssd.rect(t+2.5,3)+ssd.rect(t-2.5,3) In [763]: x4 = ssd.rect(t+3,2)-ssd.tri(t,1) +ssd.rect(t-3,2)
+Check out the six signals, including the classification, in Figure 3-8.
+Figure 3-8: Six aperiodic waveforms that are classified as even, odd, or neither.
+To discern even or odd, observe the waveform symmetry with respect to t = 0. Signals x1(t), x4(t), and x6(t) are even; they fold nicely about t = 0. Signals
+x2(t) and x5(t) fold about t = 0 but with odd symmetry because the waveform
+on the negative time axis has the opposite sign of the positive time axis signal. Signal x3(t) is neither even nor odd because a portion of the waveform,
+
+
+69
+Chapter 3: Continuous-Time Signals and Systems
+the triangle, is even about 0, while the rectangles are odd about 0. Taken in combination, the signals are neither even nor odd.
+A single sinusoid in cosine form, without any phase shift, is even, because it’s symmetric with respect to t = 0, or rather it’s a mirror image of itself about t = 0. Mathematically, this is shown by the property of being an even signal:
+Similarly, a single sinusoid in sine form, without any phase shift, is odd, because it has negative symmetry about t = 0. Instead of an exact mirror image of itself, values to the left of t = 0 are opposite in sign of the values to the right of t = 0. This is mathematically an odd signal:
+If a nonzero phase shift is included, the even or odd properties are destroyed (except for ).
+Transforming Simple Signals
+Signal transformations, such as time shifting and signal flipping, occur as part of routine signal modeling and analysis. In this section, I cover these signal manipulation tasks as well as superimposing of signals to help you get more comfortable with these processes as they relate to continuous-time signals. (For details on these tasks for discrete-time signals, flip to Chapter 6.)
+Time shifting
+Time shifting signals is a practical matter. By design, signals arrive at a system at different times. A signal sent from a cellphone arrives at the base station after a time delay due to the distance between the transmitter and receiver. Mathematically, modeling this delay allows you, the designer, to consider the impact of time on system performance.
+Given a signal x(t), consider , where may be positive, zero, or negative.
+For the shifted or transformed sequence , x(0) occurs when , which implies that the signal is shifted by seconds. If is positive, the shift is to the right; if is negative, the shift is to the left. For the unshifted signal x(t), x(0) occurs when .
+When working with the rectangle or triangle pulse function, think of moving the active region, or support interval, of the pulse. For example, the support
+
+
+70 Part I: Getting Started with Signals and Systems
+interval of is . The shifted pulse has support interval . If you isolate t between the two inequalities by adding to both sides, then the support interval is . The support interval shifts by seconds. See Figure 3-9 for a graphical depiction of time-axis shifting.
+Figure 3-9: Time shifting depicted for the triangle pulse.
+Flipping the time axis
+Processing signals in the time domain by linear time-invariant systems requires a firm handle on the concept of flipping signals (see Chapter 5). Flipping, or time reversal, of the axis corresponds to . The term flipping describes this process well because the waveform literally flips over the point . Everything reverses. What was at is now located at , for example. You can apply this to all signals, including rectangular pulses, sinusoidal signals, or generic signals. Check out Figure 3-10 to see the concept of flipping for a generic pulse signal.
+Figure 3-10: Axis flipping (reversing) for a generic pulse signal.
+Putting it together: Shift and flip
+Shifting and flipping a signal over the time axis corresponds to . Think of t in this axis transformation as the axis for plotting the signal and as a parameter you can vary. You can visualize the transformed signal as a two-step process.
+
+
+71
+Chapter 3: Continuous-Time Signals and Systems
+1. Manipulate the signal argument so you can see the problem as shift and then flip: .
+If, for a moment, you ignore the minus sign between the bracket and parentheses on the right, , it looks like x(t) is simply shifted to the right by (assume ).
+2. Bring the minus sign back in, realizing that this flips the signal.
+The minus sign surrounds , so the signal flips over the point .
+Figure 3-11 shows a shifting and flipping operation.
+Figure 3-11: Combined signal transformation of shifting and flipping.
+Confirm that the leading and trailing edges of x(t), denoted , respectively, transformed as expected. In the plot of , does the point correspond to the original leading edge ? To find out, plug into :
+To check the trailing edge location, consider the time location of the far left side of the signal. The leading edge is at the far right side of the signal.
+Flip to Chapter 5 for more information on shifting and flipping signals when working with the convolution integral.
+Superimposing signals
+Think about a time when you’ve been in a loud public space and can clearly hear the voice of the person to whom you’re talking; the other sounds register to you as background noise. The concept of superimposing signals is similar.
+In mathematical terms, superimposing signals is a matter of signal addition:
+
+
+72 Part I: Getting Started with Signals and Systems
+Each component signal, , may actually be an amplitude that’s a scaled and time-shifted and/or flipped version of some waveform primitive.
+The signals with multiple sinusoids described in the earlier section “Exponential and sinusoidal signals” represent superimposed signals, and the example signals in Figure 3-8 were generated by using time-shifted and added rectangle and triangle pulses. In real-world scenarios, you have environments that contain superimposed signals — whether by design or as a result of unwanted interference.
+Example 3-8: Signal from Figure 3-8 is a sum of three pulse signals. I used the Python rect() and tri() pulse functions to create the signal, but I was thinking about this mathematical description when I created it:
+This involves the use of signal time shifting and superposition. Note also that the Python code for generating the signal as a vector (actually a PyLab ndarray) of signal samples, x4, is an almost verbatim match with the mathematical equation for .
+Checking Out System Properties
+Generally, all continuous-time systems modify signals to benefit the objectives of an engineering design (see Chapter 1). Consider the system input/output block diagram of Figure 3-12. The input signal has fuzz on it, and the output is clean, suggesting that the system operator is acting as a fuzz-removing filter. Fuzz to you is noise to me.
+Figure 3-12: System input/ output block diagram.
+All systems have specific jobs. If you’re a system designer, you look at your design requirements and create a system accordingly. In the noise-removing filter example, the filter design takes into account the very nature of the desired and undesired signals entering the filter. If you don’t do this, your filter may pass the noise and block the signal of interest, and no one wants a coffee filter that passes the grounds and blocks the coffee.
+In this section, I describe various properties of systems based on their mathematical characteristics.
+
+
+73
+Chapter 3: Continuous-Time Signals and Systems
+Linear and nonlinear
+Simply put, a system is linear if superposition holds. Superposition refers to the ability of a system to process signals individually and then sum them up to process all the signals simultaneously. For example, suppose that two signals are present at the system input. When applied to the system individually, they produce
+If superposition holds, you can declare that, for arbitrary constants a and b,
+The generalization for K signals superimposing at the system input is
+If superposition doesn’t hold, the system is nonlinear.
+In practical terms, think about a karaoke system. You want the audio amplifier that drives the speakers in this kind of system to be linear so the music and singer’s voice in the microphone can merge without causing distortion, which happens with a nonlinear amplifier. On the other hand, many hard rock guitar players send their signal through a nonlinear amplifier to get some distortion.
+Time-invariant and time varying
+A system is time-invariant if its properties or characteristics don’t change with time. A mathematical statement of this is that given and any time offset , the time-shifted input must produce system output .
+Here, y(t) is the system output to the present input x(t). For time invariance to hold, the output of a system is unchanged (except for the time offset by ) when you apply the same input at any arbitrary offset .
+A system that doesn’t obey the condition established for time invariance is said to be time varying. Creating a system with a time-varying property is as easy as twisting the volume control on your car stereo. Specifically, the gain of the system is time varying.
+
+
+74 Part I: Getting Started with Signals and Systems
+A noise-removing filter is typically designed to be time-invariant. Assuming the noise signal characteristics and the desired signal characteristics are fixed, the filter design should be time-invariant. A time-varying filter, known as an adaptive filter, is needed when the noise signal characteristics change over time. Think of noise-canceling headphones that give you relative peace and quiet riding in an airplane or on the flight deck of an aircraft carrier. These headphones are a time-varying system.
+Causal and non-causal
+A system that is causal is nonanticipative; that is, the system can’t anticipate the arrival of a signal at the input. Sounds crazy, I know, but a non-causal system can predict the future (in a signals sense); it anticipates the signal input. Mathematically, you can define such a system, but building a physical system is impossible.
+A system is causal if all output values, , depend only on input values x(t) for — or the present output depends only on past and present input values. A non-causal system is more of a mathematical concept than a practical reality. A system that can use future values of the input to form the present output can predict the future.
+With discrete-time signals and systems (described in Chapter 4), it’s possible to store a signal in memory and then process it later by using a non-causal system. The catch is that the processing is all being done by using past values of the input, because you’re working with a recorded signal. The math of a non-causal system is still at work, because the system doesn’t realize that the signal was prerecorded. For continuous-time systems, making this work is harder; you can perform non-causal processing on continuous-time signals with records and tapes of music recordings.
+Memory and memoryless
+Very simply, a system is memoryless if each output y(t) depends only on the present input x(t). Can a memoryless system be non-causal? If the output depends only on the present input, then no way can the future values of the input be used to form the present output. Yet causal systems aren’t necessarily memoryless. A causal system can utilize past values of the input in forming the present output.
+A system that filters a system generally does so by using the present and past values of the input to form the present output. A system described by a linear constant coefficient (LCC) differential equation is one such example. An electronic circuit that’s composed of resistors, capacitors, and inductors is another example. The capacitors and inductors are the memory elements. A system with only resistors has no memory.
+
+
+75
+Chapter 3: Continuous-Time Signals and Systems
+Bounded-input bounded-output
+A system is bounded-input bounded-output (BIBO) stable only if every bounded input produces a bounded output. What’s this bounded stuff? Bounded is a mathematical term that means a signal has magnitude less than infinity over all time. The signal x(t) — which may be an input or an output — is bounded if some constant exists such that .
+To show that the property holds for any bounded input is the fundamental challenge of this scenario. Any represents quite a lot of cases; testing them all can be prohibitive. Therefore, some proof-writing skills are required here (see Example 3-10).
+Choosing Linear and Time-Invariant Systems
+From a design and analysis standpoint, engineers are typically most interested in working with systems that are both linear and time-invariant because such systems can meet demanding real-world requirements and allow for smoother analysis in the time, frequency, and s-domains. The ability to analyze system performance is critical; you want to be confident that your design meets requirements before committing to expensive prototypes.
+Example 3-9: Consider the system input/output relationship:
+Here’s how to classify this system according to the five system properties: linear, time-invariant, causal, memoryless, and BIBO stable.
+✓ Check linearity by verifying .
+Insert the system operator into the left and right sides to see whether equality holds:
+The equality doesn’t hold, so the system is nonlinear. If the 5 is set to 0, then linearity holds.
+✓ Check time invariance by observing that nothing about the system is time varying. In particular, the coefficients — 2 and 5 in this case — are constants. The system is time-invariant.
+
+
+76 Part I: Getting Started with Signals and Systems
+✓ Check causality by noting that the present output depends only on the present input. No future values of the input are used for the present output. The system is causal.
+✓ The present output depends only on the present input, so the system is memoryless.
+✓ Check BIBO stability by observing that because x(t) is a bounded input with . I used the triangle inequality ( ) to complete this proof. The system is BIBO stable.
+Example 3-10: Consider the system , and check for the five system properties:
+✓ Check linearity by verifying .
+Insert the system operator into the left and right sides to see whether equality holds:
+The equality doesn’t hold, so the system is nonlinear. If , then the step function is turned off and linearity holds conditionally.
+✓ Check time invariance by observing that the system contains two timevarying coefficients, . The system isn’t time-invariant.
+✓ Check causality by noting that the present output depends only on the present input. No future values of the input are used for the present output. The time-varying coefficients have no impact on causality, so the system is causal.
+✓ The present output depends only on the present input, so the system is memoryless.
+✓ Check BIBO stability by observing that
+Because x(t) is a bounded input with and both are upper bounded by 1, which means that the largest values these signals take on is one, the system is BIBO stable.
+
+
+Chapter 4
+Discrete-Time Signals and Systems
+In This Chapter
+▶ Considering the different types of discrete-time signals
+▶ Modifying discrete-time sequences
+▶ Working with real signals in discrete-time
+▶ Checking out discrete-time systems
+W
+e live in a continuous-time/analog world; but people increasingly use computers to process continuous signals in the discrete-time domain. From a math standpoint, discrete-time signals and systems can stand alone — independent of their continuous-time counterparts — but that isn’t the intent of this chapter. Instead, I want to show you how discrete-time signals and systems get the job done in a way that’s parallel to the continuoustime description in Chapter 3.
+A great deal of innovation takes place in discrete-time signals and systems. High-performance computer hardware combined with sophisticated algorithms offer a lot of flexibility and capability in manipulating discrete-time signals. Computers can carry out realistic simulations, which is a huge help when studying and designing discrete-time signals and systems.
+Continuous- and discrete-time signals have a lot in common. In this chapter, I describe how to classify signals and systems, move signals around the time axis, and plot signals by using software. Also, because discrete-time signals often begin in the continuous-time domain, I point out some details of converting signals late in the chapter.
+Exploring Signal Types
+Like the continuous-time signals, discrete-time signals can be exponential or sinusoidal and have special sequences. The unit sample sequence and the
+
+
+78 Part I: Getting Started with Signals and Systems
+unit step sequence are special signals of interest in discrete-time. All these signals have continuous-time counterparts, but singularity signals (covered in Chapter 3) appear in continuous-time only.
+Note: Discrete-time signals are really just sequences. The independent variable is an integer, so no in-between values exist. A bracket surrounds the time variable for discrete-time signals and systems — as in x[n] versus the x(t) used for continuous-time. The values that discrete-time signals take on are concrete; you don’t need to worry about limits.
+Exponential and sinusoidal signals
+Exponential signals and real and complex sinusoids are important types of signals in the discrete-time world. Sinusoids, both real and complex, are firmly rooted in discrete-time signal model and applications. Signals composed of sinusoids can represent communication waveforms and the basis for Fourier spectral analysis, both the discrete-time Fourier transform (described in Chapter 11) and the discrete Fourier transform and fast Fourier transform (Chapter 12).
+The exponential sequence is a versatile signal. By letting and be complex quantities in general, this signal alone can represent a real exponential, a complex sinusoid, a real sinusoid, and exponentially damped complex and real sinusoids. For definitions of these terms, flip to Chapter 3.
+Figure 4-1 shows stem plots of three variations of the general exponential sequence.
+In the remaining material, let and .
+The real exponential is formed when . A unit step sequence (described later in this section) is frequently included. The result is .
+If , the sequence is decreasing. Without any assumptions about and , you get a full complex exponential sequence:
+The envelope may be growing, constant, or decaying, depending on , respectively. For , you have a complex sinusoidal sequence:
+
+
+79
+Chapter 4: Discrete-Time Signals and Systems
+Figure 4-1: Stem plots of a real exponential
+, an exponentially damped cosine
+, and a cosine sequence ; in all three plots.
+In the discrete-time domain, complex sinusoids are common and practical, because computers can process complex signals by just adding a second signal path in software/firmware. The continuous-time complex sinusoid found in Chapter 3 requires a second wired path, increasing the complexity considerably.
+Finally, if you consider just the real part of x[n], with , you get the real sinusoid .
+Just as in the case of the continuous-time sinusoid, the definition has three parameters: The amplitude A and phase carry over from the continuoustime case; the frequency parameter doesn’t. What gives?
+In the continuous-time case, the cosine argument (less the phase) is . Tracking the units is important here. The radian frequency has units radians/second ( has units of hertz), so the cosine argument has units of radians, which is expected. But in the discrete-time case, the cosine argument (again less the phase) is . The time axis n has units of samples, so it must be that has units of radians/sample. It’s now clear that aren’t the same quantity!
+But there’s more to the story. In practice, discrete-time signals come about by uniform sampling along the continuous-time axis t. Uniform sampling means , where T is the sample spacing and is the sampling rate in hertz (actually, samples per second). When a continuous-time sinusoid is
+
+
+80 Part I: Getting Started with Signals and Systems
+sampled at rate , so it must be that .
+A fundamental result of uniform sampling is that discrete-time frequencies and continuous-time frequencies are related by this equation:
+This result holds so long as , a condition that follows from low-pass sampling theory. When the condition isn’t met, aliasing occurs. The continuous-time frequency won’t be properly represented in the discretetime domain; it will be aliased — or moved to a new frequency location that’s related to the original frequency and the sampling frequency. See Chapter 10 for more details on sampling theory and aliasing.
+Special signals
+The signals I consider in this section are defined piecewise, meaning they take on different functional values depending on a specified time or sequence interval. The first signal I consider, the unit impulse, has only one nonzero value. Most of the special signals are defined over an interval of values (more than just a point).
+The unit impulse sequence
+The unit impulse, or unit sample, sequence is defined as
+This definition is clean, as opposed to the continuous-time unit impulse, , defined in Chapter 3. Any sequence can be expressed as a linear combination of time-shifted impulses:
+This representation of x[n] is important in the development of the convolution sum formula in Chapter 6. Note that time or sequence shifting of — that is, — moves the impulse location to . Why? The function turns on when because n = k is the only time that .
+
+
+81
+Chapter 4: Discrete-Time Signals and Systems
+The unit step sequence
+The unit step sequence is defined as
+Note that unlike the continuous-time version, u[n] is precisely defined at . The unit step and unit impulse sequences are related through these relationships:
+As you can see, the unit step sequence is simply a sum of shifted unit impulses that repeats infinitely to the right, starting with n = 0. This is just one example of how any sequence can be written as a linear combination of shifted impulses — pretty awesome!
+Example 4-1: Use the unit step sequence to create a rectangular pulse sequence of length L samples. The pulse is to turn on at and stay on for L total samples.
+The solution is quite simple, , but watch the details. When , the second unit step turns on and begins to subtract +1s from the first step. The first nonzero point occurs at , and the last nonzero point occurs at . So how many nonzero points are there?
+The total number of points in the pulse is , as desired. Figure 4-2 shows the formation of the rectangular pulse sequence for .
+The Python support function dstep(), found in ssd.py, generates a unit step sequence that’s used to create a ten sample pulse sequence:
+In [10]: import ssd # at the start of the session In [11]: n = arange(-5,15+1) # create time axis n In [13]: stem(n,ssd.dstep(n))# plot u[n] In [18]: stem(n,ssd.dstep(n-10))# plot u[n-10] In [23]: stem(n,ssd.dstep(n)-ssd.dstep(n-10))# difference
+
+
+82 Part I: Getting Started with Signals and Systems
+Figure 4-2: Formation of a rectangular pulse sequence from two unit step sequences.
+Window functions
+Signals pass through windows just as light passes through the glass in your house or office; how illuminating! You may want to think of windows as the rectangular pulses of discrete-time. Just keep in mind that windows may not always be rectangular; sometimes they’re tapered. Nevertheless, these discrete-time signals are more than academic; they’re shapes used in real applications.
+In one application, you use a window function w[n] to multiply or weight a signal of interest, thereby forming a windowed sequence: .
+Window functions are also used in digital filter design. The L sample rectangular pulse of Example 4-1 shows the natural windowing that occurs when capturing an L sample chunk of signal x[n] by multiplying x[n] by w[n].
+In general, the sample values of a window function smoothly taper from unity near the center of the window to zero at each end. The rectangular window, just like the rectangle pulse, is a constant value from end to end and thus provides no tapering. In spectral analysis, a tapered window allows a weak signal to be discerned spectrally from a strong one. Windowing in a digital filter makes it harder for unwanted signals to leak through the filter.
+To fully appreciate windowing, you need to understand frequency-domain analysis, the subject of Part III. Specifically, I describe spectral analysis of discrete-time signals in Chapter 12.
