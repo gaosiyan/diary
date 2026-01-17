@@ -12,10 +12,7 @@ documentation for details.
 
 .. toctree::
    :maxdepth: 1
-   :caption: 目录:
+   :caption: 主题:
    
-   sphinx/基础教程
-   sphinx/高阶功能
-   sphinx/最佳实践
-   sphinx/项目部署
-   sphinx/外部参考资料汇总
+   sphinx/index
+   数学/index
