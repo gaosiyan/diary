@@ -49,7 +49,6 @@ language = "zh_CN"
 html_theme = "furo"
 html_static_path = ["_static", "."]
 
-
 # 启用 numfig
 numfig = True  # True 表示启用图,表格,代码块的编号,用 :numref:`name` 到对应的 图,表格,代码块
 
@@ -66,3 +65,5 @@ numfig_format = {
 math_eqref_format = "公式-{number} "
 
 math_numfig = True  # True 表示启用公式的编号
+
+html_search_language = 'zh'  # 支持中文搜索,要先安装 jieba 插件 pixi add jieba
